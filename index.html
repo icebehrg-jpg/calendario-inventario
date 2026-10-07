@@ -446,11 +446,6 @@
             font-weight: 500;
         }
         
-        .linha-ev.cancelado .tx {
-            text-decoration: line-through;
-            color: var(--bs-secondary-color);
-        }
-        
         .linha-ev.ativo {
             background: var(--bs-secondary-bg);
         }
@@ -655,11 +650,6 @@
             font-variant-numeric: tabular-nums;
         }
         
-        .chip-q.cancelado {
-            text-decoration: line-through;
-            opacity: .7;
-        }
-        
         .chip-q.ativo {
             outline: 2px solid var(--bs-emphasis-color);
         }
@@ -792,39 +782,26 @@
         <!-- ===================== TOPO ===================== -->
         <header class="topo">
             <button type="button" class="btn-icone" id="btn-menu" aria-label="Menu principal">
-                    <svg width="22" height="22" viewBox="0 0 24 24"
-                        aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"
-                            stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" /></svg>
-                </button>
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
             <div class="marca d-none d-sm-flex">
                 <span class="logo" id="logo-dia" aria-hidden="true">7</span>
                 <span class="nome fs-5 fw-semibold d-none d-xl-inline">Inventários</span>
             </div>
             <button type="button" class="btn btn-outline-secondary btn-sm btn-hoje" id="btn-hoje" title="Hoje (T)">Hoje</button>
             <button type="button" class="btn-icone sm" data-nav="-1" aria-label="Anterior" title="Anterior (←)">
-                    <svg width="18" height="18" viewBox="0 0 20 20"
-                        aria-hidden="true"><path d="M12.5 4.5 7 10l5.5 5.5"
-                            fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round" /></svg>
-                </button>
+      <svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><path d="M12.5 4.5 7 10l5.5 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
             <button type="button" class="btn-icone sm" data-nav="1" aria-label="Próximo" title="Próximo (→)">
-                    <svg width="18" height="18" viewBox="0 0 20 20"
-                        aria-hidden="true"><path d="M7.5 4.5 13 10l-5.5 5.5"
-                            fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round" /></svg>
-                </button>
+      <svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><path d="M7.5 4.5 13 10l-5.5 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
             <h1 class="titulo" id="titulo"></h1>
 
             <div class="ms-auto d-flex align-items-center gap-2">
                 <input type="search" class="form-control form-control-sm busca-topo d-none d-lg-block" id="busca-topo" placeholder="Pesquisar filial, loja, cidade, responsável" aria-label="Pesquisar">
                 <div class="btn-group btn-group-sm" role="group" aria-label="Visão do calendário">
                     <button type="button" class="btn btn-outline-secondary fw-semibold px-3" data-visao="mes" title="Mês (M)">Mês</button>
-                    <button type="button" class="btn btn-outline-secondary fw-semibold px-3" data-visao="trimestre" title="Trimestre (Q)"><span
-                                class="d-none d-sm-inline">Trimestre</span><span
-                                class="d-sm-none">Tri</span></button>
+                    <button type="button" class="btn btn-outline-secondary fw-semibold px-3" data-visao="trimestre" title="Trimestre (Q)"><span class="d-none d-sm-inline">Trimestre</span><span class="d-sm-none">Tri</span></button>
                 </div>
             </div>
         </header>
@@ -839,11 +816,9 @@
                 <div class="p-3 pt-lg-3 vstack gap-4">
                     <div>
                         <button type="button" class="btn-criar" id="btn-criar">
-                                <svg width="28" height="28" viewBox="0 0 36 36"
-                                    aria-hidden="true"><path fill="#F5A524"
-                                        d="M16 16v-8h4v8h8v4h-8v8h-4v-8H8v-4z" /></svg>
-                                Criar inventário
-                            </button>
+            <svg width="28" height="28" viewBox="0 0 36 36" aria-hidden="true"><path fill="#F5A524" d="M16 16v-8h4v8h8v4h-8v8h-4v-8H8v-4z"/></svg>
+            Criar inventário
+          </button>
                     </div>
 
                     <!-- Mini calendário -->
@@ -851,24 +826,8 @@
                         <div class="d-flex flex-nowrap align-items-center justify-content-between mb-1 ps-2">
                             <span class="fw-semibold text-truncate" id="mini-titulo"></span>
                             <div class="d-flex flex-none">
-                                <button type="button" class="btn-icone sm" id="mini-ant" aria-label="Mês anterior"><svg
-                                            width="16" height="16"
-                                            viewBox="0 0 20 20"><path
-                                                d="M12.5 4.5 7 10l5.5 5.5"
-                                                fill="none"
-                                                stroke="currentColor"
-                                                stroke-width="2"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round" /></svg></button>
-                                <button type="button" class="btn-icone sm" id="mini-prox" aria-label="Próximo mês"><svg width="16"
-                                            height="16"
-                                            viewBox="0 0 20 20"><path
-                                                d="M7.5 4.5 13 10l-5.5 5.5"
-                                                fill="none"
-                                                stroke="currentColor"
-                                                stroke-width="2"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round" /></svg></button>
+                                <button type="button" class="btn-icone sm" id="mini-ant" aria-label="Mês anterior"><svg width="16" height="16" viewBox="0 0 20 20"><path d="M12.5 4.5 7 10l5.5 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                                <button type="button" class="btn-icone sm" id="mini-prox" aria-label="Próximo mês"><svg width="16" height="16" viewBox="0 0 20 20"><path d="M7.5 4.5 13 10l-5.5 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
                             </div>
                         </div>
                         <div class="mini-cal" id="mini-cal"></div>
@@ -878,16 +837,10 @@
 
                     <!-- Resumo -->
                     <div>
-                        <div class="rotulo-secao mb-2" id="r-rotulo">Neste mês
-                        </div>
+                        <div class="rotulo-secao mb-2" id="r-rotulo">Neste mês</div>
                         <div class="d-flex justify-content-between small mb-1"><span>Inventários</span><strong class="tabular" id="r-total">0</strong></div>
-                        <div class="d-flex justify-content-between small mb-1"><span>Próximos
-                                    7 dias</span><strong class="tabular" id="r-prox">0</strong></div>
-                        <div class="d-flex justify-content-between small mb-1"><span>Lojas
-                                    concluídas em <span
-                                        id="r-ano"></span></span><strong class="tabular"><span
-                                        id="r-cob">0</span>/<span
-                                        id="r-lojas"></span></strong></div>
+                        <div class="d-flex justify-content-between small mb-1"><span>Próximos 7 dias</span><strong class="tabular" id="r-prox">0</strong></div>
+                        <div class="d-flex justify-content-between small mb-1"><span>Lojas finalizadas em <span id="r-ano"></span></span><strong class="tabular"><span id="r-cob">0</span>/<span id="r-lojas"></span></strong></div>
                         <div class="progress mt-2" style="height: 6px" role="progressbar" aria-label="Cobertura anual" id="r-progress">
                             <div class="progress-bar" id="r-bar" style="background: var(--app-amber)"></div>
                         </div>
@@ -900,10 +853,8 @@
                     </div>
                     <div>
                         <div class="rotulo-secao mb-2">Filtros</div>
-                        <select id="f-uf" class="form-select form-select-sm mb-2" aria-label="Filtrar por UF"><option value>Todas
-                                    as UFs</option></select>
-                        <select id="f-equipe" class="form-select form-select-sm" aria-label="Filtrar por equipe"><option
-                                    value>Todas as equipes</option></select>
+                        <select id="f-uf" class="form-select form-select-sm mb-2" aria-label="Filtrar por UF"><option value="">Todas as UFs</option></select>
+                        <select id="f-equipe" class="form-select form-select-sm" aria-label="Filtrar por equipe"><option value="">Todas as equipes</option></select>
                         <button type="button" class="btn btn-link btn-sm px-0 mt-1 d-none" id="btn-limpar">Limpar filtros</button>
                     </div>
 
@@ -926,8 +877,7 @@
                 <div class="modal-header align-items-start">
                     <div>
                         <h2 class="modal-title h5 fw-bold" id="titulo-form">Cadastrar inventário</h2>
-                        <p class="small text-body-secondary mb-0" id="sub-form">Escolha a loja e confira data e horário.
-                        </p>
+                        <p class="small text-body-secondary mb-0" id="sub-form">Escolha a loja, a data e o horário.</p>
                     </div>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
                 </div>
@@ -935,55 +885,38 @@
                     <div>
                         <label class="form-label small text-body-secondary mb-1" for="busca-loja">Loja</label>
                         <input id="busca-loja" type="text" class="form-control" autocomplete="off" placeholder="Filial, nome ou cidade" role="combobox" aria-autocomplete="list" aria-controls="lista-lojas" aria-expanded="false">
-                        <div class="invalid-feedback">Selecione uma loja da lista.
-                        </div>
+                        <div class="invalid-feedback">Selecione uma loja da lista.</div>
                         <div id="lista-lojas" class="list-group mt-1 shadow-sm lista-lojas d-none" role="listbox"></div>
                     </div>
                     <dl id="info-loja" class="row g-0 bg-body-tertiary rounded-3 px-3 py-1 mb-0 d-none"></dl>
                     <div class="row g-3">
-                        <div class="col-12 col-sm-6">
+                        <div class="col-12 col-sm-4">
                             <label class="form-label small text-body-secondary mb-1" for="i-data">Data</label>
                             <input id="i-data" type="date" class="form-control">
-                            <div class="invalid-feedback">Informe a data.
-                            </div>
+                            <div class="invalid-feedback">Informe a data.</div>
                         </div>
-                        <div class="col-6 col-sm-3">
+                        <div class="col-6 col-sm-4">
                             <label class="form-label small text-body-secondary mb-1" for="i-hora">Início</label>
                             <input id="i-hora" type="time" class="form-control" step="900">
                             <div class="invalid-feedback">Informe.</div>
                         </div>
-                        <div class="col-6 col-sm-3">
+                        <div class="col-6 col-sm-4">
                             <label class="form-label small text-body-secondary mb-1" for="i-fim">Término</label>
                             <input id="i-fim" type="time" class="form-control" step="900">
-                            <div class="invalid-feedback">Diferente do início.
-                            </div>
+                            <div class="invalid-feedback">Deve ser depois do início.</div>
                         </div>
                         <div class="col-12 small text-body-secondary mt-1" id="dica-duracao"></div>
                     </div>
                     <div id="alerta-conflito" class="alert alert-danger small py-2 mb-0 d-none" role="alert"></div>
-                    <div class="row g-3">
-                        <div class="col-6">
-                            <label class="form-label small text-body-secondary mb-1" for="i-tipo">Tipo</label>
-                            <select id="i-tipo" class="form-select"></select>
-                        </div>
-                        <div class="col-6">
-                            <label class="form-label small text-body-secondary mb-1" for="i-status">Status</label>
-                            <select id="i-status" class="form-select"></select>
-                        </div>
-                    </div>
                     <div>
                         <label class="form-label small text-body-secondary mb-1" for="i-equipe">Equipe</label>
-                        <select id="i-equipe" class="form-select"><option
-                                    value disabled selected>Selecione a
-                                    equipe</option></select>
-                        <div class="invalid-feedback">Informe a equipe responsável.
-                        </div>
+                        <select id="i-equipe" class="form-select"><option value="" disabled selected>Selecione a equipe</option></select>
+                        <div class="invalid-feedback">Informe a equipe responsável.</div>
                     </div>
                     <div>
                         <label class="form-label small text-body-secondary mb-1" for="i-resp">Responsável</label>
                         <input id="i-resp" type="text" class="form-control" maxlength="80" placeholder="Nome do responsável">
-                        <div class="invalid-feedback">Informe o nome do responsável.
-                        </div>
+                        <div class="invalid-feedback">Informe o nome do responsável.</div>
                     </div>
                     <div>
                         <label class="form-label small text-body-secondary mb-1" for="i-obs">Observações</label>
@@ -1009,8 +942,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
     <script>
         /* =====================================================================
-                   DADOS
-                   ===================================================================== */
+           DADOS
+           ===================================================================== */
         // 214 lojas de Regionais_por_Loja.xlsx (Regional desconsiderado)
         const LOJAS = [{
             "codigo": "0003",
@@ -2298,21 +2231,19 @@
             "endereco": "R. Voluntários da Pátria, 264"
         }];
 
-        const TIPOS = ['Geral', 'Rotativo', 'Parcial'];
-        const STATUS = ['Agendado', 'Em andamento', 'Concluído', 'Cancelado'];
+        const STATUS = ['Agendado', 'Em andamento', 'Finalizado'];
         const EQUIPES = ['Equipe São Paulo', 'Equipe Interior SP', 'Equipe Rio de Janeiro', 'Equipe Minas Gerais', 'Equipe Sul', 'Equipe Centro-Oeste', 'Equipe Nordeste'];
         const COR = {
             'Agendado': 'primary',
             'Em andamento': 'warning',
-            'Concluído': 'success',
-            'Cancelado': 'secondary'
+            'Finalizado': 'success'
         };
 
         const MESES = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
         const MESES_C = ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez'];
         const DSEM = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
         const DSEM_L = ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado'];
-        const STORAGE_KEY = 'mockup-gcal-inventario:v2';
+        const STORAGE_KEY = 'mockup-gcal-inventario:v3';
         const lojaPor = new Map(LOJAS.map(l => [l.codigo, l]));
 
         /* =====================================================================
@@ -2370,7 +2301,19 @@
             const d = fromIso(s);
             return `${DSEM_L[d.getDay()]}, ${d.getDate()} de ${MESES[d.getMonth()].toLowerCase()}`;
         };
-        const viraDia = inv => min(inv.horaFim) <= min(inv.horaInicio); // termina no dia seguinte
+        /**
+         * Status calculado automaticamente pela data/hora (o inventário começa e termina no mesmo dia):
+         * antes do início = Agendado · entre início e término = Em andamento · depois do término = Finalizado
+         */
+        function statusDe(inv) {
+            const agora = new Date(),
+                hoje = toIso(agora),
+                m = agora.getHours() * 60 + agora.getMinutes();
+            if (inv.data < hoje) return 'Finalizado';
+            if (inv.data > hoje) return 'Agendado';
+            if (m < min(inv.horaInicio)) return 'Agendado';
+            return m < min(inv.horaFim) ? 'Em andamento' : 'Finalizado';
+        }
 
         /* =====================================================================
            HELPERS
@@ -2428,52 +2371,46 @@
         }
 
         function exemplos() {
-            const base = inicioSemana(hojeIso()),
-                hoje = hojeIso();
-            // [loja, deslocamento em dias a partir do domingo desta semana, início, término, tipo, equipe, responsável]
+            const base = inicioSemana(hojeIso());
+            // [loja, deslocamento em dias a partir do domingo desta semana, início, término, equipe, responsável]
             const p = [
-                ['0071', -27, '22:00', '03:00', 'Geral', 'Equipe São Paulo', 'Guilherme Martins'],
-                ['0003', -24, '07:00', '12:00', 'Rotativo', 'Equipe São Paulo', 'Ana Paula Lima'],
-                ['0024', -22, '22:00', '04:00', 'Geral', 'Equipe Rio de Janeiro', 'Marcos Teixeira'],
-                ['0034', -20, '14:00', '18:00', 'Parcial', 'Equipe Minas Gerais', 'Juliana Prado'],
-                ['0016', -15, '22:00', '03:30', 'Geral', 'Equipe Interior SP', 'Rafael Nogueira'],
-                ['0050', -13, '08:00', '11:00', 'Rotativo', 'Equipe Sul', 'Carla Mendes'],
-                ['0028', -9, '21:00', '02:00', 'Geral', 'Equipe Centro-Oeste', 'Bruno Alves'],
-                ['0007', -6, '22:00', '03:00', 'Geral', 'Equipe São Paulo', 'Guilherme Martins'],
-                ['0021', -5, '07:30', '11:30', 'Parcial', 'Equipe Interior SP', 'Rafael Nogueira'],
-                ['0027', -1, '13:00', '17:00', 'Rotativo', 'Equipe Rio de Janeiro', 'Marcos Teixeira'],
-                ['0008', 1, '22:00', '03:00', 'Geral', 'Equipe São Paulo', 'Ana Paula Lima'],
-                ['0010', 2, '08:00', '12:00', 'Rotativo', 'Equipe São Paulo', 'Guilherme Martins'],
-                ['0013', 2, '09:30', '13:00', 'Parcial', 'Equipe São Paulo', 'Ana Paula Lima'],
-                ['0029', 2, '22:00', '02:30', 'Geral', 'Equipe Interior SP', 'Rafael Nogueira'],
-                ['0244', 3, '07:00', '11:00', 'Rotativo', 'Equipe Minas Gerais', 'Juliana Prado'],
-                ['0019', 3, '14:00', '18:00', 'Parcial', 'Equipe São Paulo', 'Guilherme Martins'],
-                ['0246', 4, '22:00', '04:00', 'Geral', 'Equipe Rio de Janeiro', 'Marcos Teixeira'],
-                ['0245', 5, '06:00', '10:00', 'Rotativo', 'Equipe Interior SP', 'Rafael Nogueira'],
-                ['0022', 8, '22:00', '03:00', 'Geral', 'Equipe São Paulo', 'Ana Paula Lima'],
-                ['0041', 9, '08:00', '12:00', 'Parcial', 'Equipe Interior SP', 'Rafael Nogueira'],
-                ['0026', 10, '22:00', '03:00', 'Geral', 'Equipe São Paulo', 'Guilherme Martins'],
-                ['0049', 11, '13:00', '17:00', 'Rotativo', 'Equipe São Paulo', 'Ana Paula Lima'],
-                ['0046', 15, '07:00', '11:00', 'Geral', 'Equipe Interior SP', 'Rafael Nogueira'],
-                ['0031', 16, '22:00', '03:00', 'Geral', 'Equipe São Paulo', 'Guilherme Martins'],
-                ['0020', 23, '22:00', '03:00', 'Rotativo', 'Equipe São Paulo', 'Ana Paula Lima'],
+                ['0071', -27, '07:00', '15:00', 'Equipe São Paulo', 'Guilherme Martins'],
+                ['0003', -24, '07:00', '12:00', 'Equipe São Paulo', 'Ana Paula Lima'],
+                ['0024', -22, '06:00', '14:00', 'Equipe Rio de Janeiro', 'Marcos Teixeira'],
+                ['0034', -20, '14:00', '18:00', 'Equipe Minas Gerais', 'Juliana Prado'],
+                ['0016', -15, '07:00', '16:00', 'Equipe Interior SP', 'Rafael Nogueira'],
+                ['0050', -13, '08:00', '11:00', 'Equipe Sul', 'Carla Mendes'],
+                ['0028', -9, '06:00', '13:00', 'Equipe Centro-Oeste', 'Bruno Alves'],
+                ['0007', -6, '07:00', '15:00', 'Equipe São Paulo', 'Guilherme Martins'],
+                ['0021', -5, '07:30', '11:30', 'Equipe Interior SP', 'Rafael Nogueira'],
+                ['0027', -1, '13:00', '17:00', 'Equipe Rio de Janeiro', 'Marcos Teixeira'],
+                ['0008', 1, '07:00', '15:00', 'Equipe São Paulo', 'Ana Paula Lima'],
+                ['0010', 2, '08:00', '12:00', 'Equipe São Paulo', 'Guilherme Martins'],
+                ['0013', 2, '09:30', '13:00', 'Equipe São Paulo', 'Ana Paula Lima'],
+                ['0029', 2, '14:00', '20:00', 'Equipe Interior SP', 'Rafael Nogueira'],
+                ['0244', 3, '07:00', '11:00', 'Equipe Minas Gerais', 'Juliana Prado'],
+                ['0019', 3, '14:00', '23:00', 'Equipe São Paulo', 'Guilherme Martins'],
+                ['0246', 4, '06:00', '14:00', 'Equipe Rio de Janeiro', 'Marcos Teixeira'],
+                ['0245', 5, '06:00', '10:00', 'Equipe Interior SP', 'Rafael Nogueira'],
+                ['0022', 8, '07:00', '15:00', 'Equipe São Paulo', 'Ana Paula Lima'],
+                ['0041', 9, '08:00', '12:00', 'Equipe Interior SP', 'Rafael Nogueira'],
+                ['0026', 10, '07:00', '15:00', 'Equipe São Paulo', 'Guilherme Martins'],
+                ['0049', 11, '13:00', '17:00', 'Equipe São Paulo', 'Ana Paula Lima'],
+                ['0046', 15, '07:00', '11:00', 'Equipe Interior SP', 'Rafael Nogueira'],
+                ['0031', 16, '07:00', '15:00', 'Equipe São Paulo', 'Guilherme Martins'],
+                ['0020', 23, '07:00', '15:00', 'Equipe São Paulo', 'Ana Paula Lima'],
             ];
-            return p.filter(x => lojaPor.has(x[0])).map(([lojaCodigo, off, horaInicio, horaFim, tipo, equipe, responsavel], i) => {
-                const data = addDias(base, off);
-                const status = data < hoje ? (i === 5 ? 'Cancelado' : 'Concluído') : data === hoje ? 'Em andamento' : 'Agendado';
-                return {
+            return p.filter(x => lojaPor.has(x[0])).map(([lojaCodigo, off, horaInicio, horaFim, equipe, responsavel], i) =>
+                ({
                     id: 'demo-' + i,
                     lojaCodigo,
-                    data,
+                    data: addDias(base, off),
                     horaInicio,
                     horaFim,
-                    tipo,
-                    status,
                     equipe,
                     responsavel,
                     observacao: ''
-                };
-            });
+                }));
         }
 
         /* =====================================================================
@@ -2484,7 +2421,7 @@
                 termo = norm(f.busca);
             return estado.inventarios.filter(inv => {
                 const l = lojaPor.get(inv.lojaCodigo);
-                if (!f.status.has(inv.status)) return false;
+                if (!f.status.has(statusDe(inv))) return false;
                 if (f.uf && (!l || l.uf !== f.uf)) return false;
                 if (f.equipe && inv.equipe !== f.equipe) return false;
                 if (termo && !norm(`${inv.lojaCodigo} ${l ? l.nome : ''} ${l ? l.cidade : ''} ${inv.responsavel}`).includes(termo)) return false;
@@ -2501,8 +2438,8 @@
             m.forEach(l => l.sort((a, b) => a.horaInicio.localeCompare(b.horaInicio)));
             return m;
         }
-        const conflito = (codigo, data, ignorar) => estado.inventarios.find(x => x.lojaCodigo === codigo && x.data === data && x.id !== ignorar && x.status !== 'Cancelado');
-        const ultimoConcluido = (codigo, antes) => estado.inventarios.filter(x => x.lojaCodigo === codigo && x.status === 'Concluído' && x.data < antes).sort((a, b) => b.data.localeCompare(a.data))[0];
+        const conflito = (codigo, data, ignorar) => estado.inventarios.find(x => x.lojaCodigo === codigo && x.data === data && x.id !== ignorar);
+        const ultimoFinalizado = (codigo, antes) => estado.inventarios.filter(x => x.lojaCodigo === codigo && statusDe(x) === 'Finalizado' && x.data < antes).sort((a, b) => b.data.localeCompare(a.data))[0];
 
         /* =====================================================================
            RENDERIZAÇÃO
@@ -2570,9 +2507,9 @@ function renderResumo(lista) {
   $('#r-rotulo').textContent = estado.visao === 'mes' ? 'Neste mês' : 'Neste trimestre';
   $('#r-total').textContent = noPeriodo.length;
   const h = hojeIso(), f = addDias(h, 7);
-  $('#r-prox').textContent = estado.inventarios.filter(i => i.data >= h && i.data <= f && i.status !== 'Cancelado').length;
+  $('#r-prox').textContent = estado.inventarios.filter(i => i.data >= h && i.data <= f && statusDe(i) !== 'Finalizado').length;
   const ano = ref.slice(0, 4);
-  const cob = new Set(estado.inventarios.filter(i => i.status === 'Concluído' && i.data.startsWith(ano)).map(i => i.lojaCodigo)).size;
+  const cob = new Set(estado.inventarios.filter(i => statusDe(i) === 'Finalizado' && i.data.startsWith(ano)).map(i => i.lojaCodigo)).size;
   $('#r-ano').textContent = ano; $('#r-cob').textContent = cob;
   $('#r-bar').style.width = (cob / LOJAS.length * 100) + '%';
   $('#r-progress').setAttribute('aria-valuenow', cob);
@@ -2586,8 +2523,8 @@ function htmlMes(mapa) {
     const itens = mapa.get(d) || [], dt = fromIso(d);
     const cls = ['mes-cel', dt.getMonth() !== mes && 'fora', d === hoje && 'hoje', d === estado.data && 'sel'].filter(Boolean).join(' ');
     const primeiroDoMes = dt.getDate() === 1 ? `${dt.getDate()} ${MESES_C[dt.getMonth()]}` : dt.getDate();
-    const linhasEv = itens.slice(0, max).map(i => `<button type="button" class="linha-ev${i.status === 'Cancelado' ? ' cancelado' : ''}${i.id === estado.ativoId ? ' ativo' : ''}" data-ev="${esc(i.id)}" title="${esc(tituloInv(i) + ' • ' + i.horaInicio + ' • ' + i.status)}">
-        <span class="pt bg-${COR[i.status]}"></span><span class="hr">${i.horaInicio}</span><span class="tx">${esc(tituloInv(i))}</span></button>`).join('');
+    const linhasEv = itens.slice(0, max).map(i => `<button type="button" class="linha-ev${i.id === estado.ativoId ? ' ativo' : ''}" data-ev="${esc(i.id)}" title="${esc(tituloInv(i) + ' • ' + i.horaInicio + ' • ' + statusDe(i))}">
+        <span class="pt bg-${COR[statusDe(i)]}"></span><span class="hr">${i.horaInicio}</span><span class="tx">${esc(tituloInv(i))}</span></button>`).join('');
     return `<div class="${cls}" data-novo="${d}" style="min-height: calc((100vh - 64px - 34px) / ${linhas})">
       <button type="button" class="n" data-lista-dia="${d}" aria-label="Ver inventários de ${dataLonga(d)}" style="${dt.getDate() === 1 ? 'width:auto;padding:0 8px;border-radius:13px' : ''}">${primeiroDoMes}</button>
       <div class="mes-eventos vstack gap-0">${linhasEv}
@@ -2610,10 +2547,10 @@ function htmlTrimestre(mapa) {
       qtd += itens.length;
       const cls = ['tri-cel', iso === hoje && 'hoje', iso === estado.data && 'sel'].filter(Boolean).join(' ');
       const chips = itens.slice(0, 2).map(i => {
-        const c = COR[i.status];
-        return `<button type="button" class="chip-q ev-${c}${i.status === 'Cancelado' ? ' cancelado' : ''}${i.id === estado.ativoId ? ' ativo' : ''}"
+        const c = COR[statusDe(i)];
+        return `<button type="button" class="chip-q ev-${c}${i.id === estado.ativoId ? ' ativo' : ''}"
           data-ev="${esc(i.id)}"
-          title="${esc(tituloInv(i) + ' • ' + i.horaInicio + ' • ' + i.status)}">${esc(i.lojaCodigo)}<span class="nm"> ${esc(curto(lojaPor.get(i.lojaCodigo)))}</span></button>`;
+          title="${esc(tituloInv(i) + ' • ' + i.horaInicio + ' • ' + statusDe(i))}">${esc(i.lojaCodigo)}<span class="nm"> ${esc(curto(lojaPor.get(i.lojaCodigo)))}</span></button>`;
       }).join('');
       cel += `<div class="${cls}" data-novo="${iso}">
         <button type="button" class="n" data-lista-dia="${iso}" aria-label="Ver inventários de ${dataLonga(iso)}">${dia}</button>
@@ -2638,11 +2575,11 @@ const det = $('#detalhe');
 let confirmarExclusaoPop = false;
 function abrirDetalhe(id, ancora) {
   const inv = estado.inventarios.find(x => x.id === id); if (!inv) return;
-  const l = lojaPor.get(inv.lojaCodigo), c = COR[inv.status];
+  const l = lojaPor.get(inv.lojaCodigo), c = COR[statusDe(inv)];
   confirmarExclusaoPop = false;
   estado.ativoId = id;
   document.querySelectorAll('[data-ev]').forEach(e => e.classList.toggle('ativo', e.dataset.ev === id));
-  const fimTxt = viraDia(inv) ? `${inv.horaFim} do dia seguinte` : inv.horaFim;
+  const fimTxt = inv.horaFim;
   det.innerHTML = `
     <div class="acoes">
       <button type="button" class="btn-icone sm" data-acao="editar" aria-label="Editar" title="Editar">
@@ -2659,7 +2596,7 @@ function abrirDetalhe(id, ancora) {
     <div class="linha"><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5M16 4.5a3.5 3.5 0 0 1 0 7M18 14.8c1.8.7 3 2.5 3.5 5.2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
       <div>${esc(inv.equipe)}<div class="text-body-secondary small">Responsável: ${esc(inv.responsavel)}</div></div></div>
     <div class="linha"><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 4h14v16H5zM9 9h6M9 13h6M9 17h3" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></span>
-      <div>Inventário ${esc(inv.tipo.toLowerCase())} · <span class="badge rounded-pill text-bg-${c}">${esc(inv.status)}</span></div></div>
+      <div><span class="badge rounded-pill text-bg-${c}">${esc(statusDe(inv))}</span></div></div>
     ${inv.observacao ? `<div class="linha"><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span><div>${esc(inv.observacao)}</div></div>` : ''}
     <div class="px-3 pt-2 d-none" id="conf-excluir"><div class="alert alert-danger py-2 small mb-2">Excluir este inventário?</div>
       <div class="d-flex gap-2 justify-content-end"><button class="btn btn-sm btn-outline-secondary" data-acao="cancelar-exc">Cancelar</button><button class="btn btn-sm btn-danger" data-acao="confirmar-exc">Excluir</button></div></div>`;
@@ -2678,9 +2615,9 @@ function abrirListaDia(dia, ancora) {
     </div>
     <div class="lista-dia-pop px-1">
       ${itens.length ? itens.map(i => `<button type="button" class="item" data-acao="ver" data-id="${esc(i.id)}">
-          <span class="rounded-circle bg-${COR[i.status]} flex-none" style="width:10px;height:10px"></span>
+          <span class="rounded-circle bg-${COR[statusDe(i)]} flex-none" style="width:10px;height:10px"></span>
           <span class="tabular text-body-secondary">${i.horaInicio}</span>
-          <span class="fw-semibold text-truncate${i.status === 'Cancelado' ? ' text-decoration-line-through' : ''}">${esc(tituloInv(i))}</span></button>`).join('')
+          <span class="fw-semibold text-truncate">${esc(tituloInv(i))}</span></button>`).join('')
         : '<p class="text-center text-body-secondary small mb-2">Nenhum inventário neste dia.</p>'}
     </div>
     <div class="text-center mt-2"><button type="button" class="btn btn-sm btn-outline-secondary rounded-pill px-3" data-acao="novo-dia" data-dia="${dia}">+ Cadastrar neste dia</button></div>`;
@@ -2721,16 +2658,16 @@ document.addEventListener('mousedown', e => {
    MODAL DE CADASTRO / EDIÇÃO
    ===================================================================== */
 const modalEl = $('#modal-inv'), modal = new bootstrap.Modal(modalEl);
-const C = { data: $('#i-data'), hora: $('#i-hora'), fim: $('#i-fim'), tipo: $('#i-tipo'), status: $('#i-status'), equipe: $('#i-equipe'), resp: $('#i-resp'), obs: $('#i-obs') };
+const C = { data: $('#i-data'), hora: $('#i-hora'), fim: $('#i-fim'), equipe: $('#i-equipe'), resp: $('#i-resp'), obs: $('#i-obs') };
 let tentou = false, confirmaExc = false;
 
 function abrirNovo(data, inicioMin) {
   estado.editandoId = null;
-  const ini = inicioMin == null ? 22 * 60 : inicioMin, fim = (ini + 4 * 60) % 1440;
-  preencher({ lojaCodigo: '', data, horaInicio: hhmm(ini), horaFim: hhmm(fim), tipo: 'Geral', status: 'Agendado',
+  const ini = inicioMin == null ? 7 * 60 : inicioMin, fim = Math.min(ini + 8 * 60, 23 * 60 + 45);
+  preencher({ lojaCodigo: '', data, horaInicio: hhmm(ini), horaFim: hhmm(fim),
     equipe: C.equipe.value, responsavel: C.resp.value, observacao: '' });
   $('#titulo-form').textContent = 'Cadastrar inventário';
-  $('#sub-form').textContent = 'Escolha a loja e confira data e horário.';
+  $('#sub-form').textContent = 'Escolha a loja, a data e o horário.';
   $('#btn-salvar').textContent = 'Cadastrar';
   $('#btn-excluir').classList.add('d-none');
   modal.show();
@@ -2750,7 +2687,7 @@ function preencher(inv) {
   $('#form-inv').querySelectorAll('.is-invalid').forEach(e => e.classList.remove('is-invalid'));
   estado.lojaSel = inv.lojaCodigo || null;
   $('#busca-loja').value = estado.lojaSel ? rotulo(lojaPor.get(estado.lojaSel)) : '';
-  C.data.value = inv.data; C.hora.value = inv.horaInicio; C.fim.value = inv.horaFim; C.tipo.value = inv.tipo; C.status.value = inv.status;
+  C.data.value = inv.data; C.hora.value = inv.horaInicio; C.fim.value = inv.horaFim;
   C.equipe.value = inv.equipe || ''; C.resp.value = inv.responsavel || ''; C.obs.value = inv.observacao || '';
   fecharLista(); infoLoja(); verConflito(); dicaDuracao();
 }
@@ -2778,30 +2715,29 @@ function escolherLoja(cod) {
 function infoLoja() {
   const el = $('#info-loja'), l = lojaPor.get(estado.lojaSel);
   if (!l) { el.classList.add('d-none'); el.innerHTML = ''; return; }
-  const u = C.data.value ? ultimoConcluido(l.codigo, C.data.value) : null;
+  const u = C.data.value ? ultimoFinalizado(l.codigo, C.data.value) : null;
   const it = (r, v, c) => `<div class="${c} py-2"><dt class="small fw-normal text-body-secondary mb-1">${r}</dt><dd class="fw-bold mb-0 text-break">${esc(v)}</dd></div>`;
   el.innerHTML = it('Filial', l.codigo, 'col-6 border-bottom') + it('Loja', curto(l), 'col-6 border-bottom') +
     it('Cidade / UF', `${l.cidade} / ${l.uf}`, 'col-12 border-bottom') + it('Endereço', l.endereco, 'col-12 border-bottom') +
-    it('Último inventário concluído', u ? `${br(u.data)} (${u.tipo})` : 'Sem registro', 'col-12');
+    it('Último inventário finalizado', u ? br(u.data) : 'Sem registro', 'col-12');
   el.classList.remove('d-none');
 }
 function verConflito() {
   const el = $('#alerta-conflito');
-  const c = estado.lojaSel && C.data.value && C.status.value !== 'Cancelado' ? conflito(estado.lojaSel, C.data.value, estado.editandoId) : null;
+  const c = estado.lojaSel && C.data.value ? conflito(estado.lojaSel, C.data.value, estado.editandoId) : null;
   el.classList.toggle('d-none', !c);
-  el.textContent = c ? `Esta loja já tem inventário em ${br(c.data)} às ${c.horaInicio} (${c.status}). Escolha outra data ou edite o registro existente.` : '';
+  el.textContent = c ? `Esta loja já tem inventário em ${br(c.data)}, das ${c.horaInicio} às ${c.horaFim}. Escolha outra data ou edite o registro existente.` : '';
   return c;
 }
 function dicaDuracao() {
   const el = $('#dica-duracao');
-  if (!C.hora.value || !C.fim.value || C.hora.value === C.fim.value) { el.textContent = ''; return; }
-  let d = min(C.fim.value) - min(C.hora.value); const vira = d <= 0; if (vira) d += 1440;
-  el.textContent = `Duração: ${Math.floor(d / 60)}h${d % 60 ? pad(d % 60) : ''}${vira ? ' · termina no dia seguinte' : ''}`;
+  const d = C.hora.value && C.fim.value ? min(C.fim.value) - min(C.hora.value) : 0;
+  el.textContent = d > 0 ? `Duração: ${Math.floor(d / 60)}h${d % 60 ? pad(d % 60) : ''} · o inventário começa e termina no mesmo dia` : '';
 }
 function validar() {
   let ok = true; const m = (el, inv) => { el.classList.toggle('is-invalid', inv); if (inv) ok = false; };
   m($('#busca-loja'), !estado.lojaSel); m(C.data, !C.data.value); m(C.hora, !C.hora.value);
-  m(C.fim, !C.fim.value || C.fim.value === C.hora.value); m(C.equipe, !C.equipe.value); m(C.resp, !C.resp.value.trim());
+  m(C.fim, !C.fim.value || !C.hora.value || min(C.fim.value) <= min(C.hora.value)); m(C.equipe, !C.equipe.value); m(C.resp, !C.resp.value.trim());
   if (verConflito()) ok = false;
   return ok;
 }
@@ -2820,7 +2756,6 @@ busca.addEventListener('keydown', e => {
 });
 $('#lista-lojas').addEventListener('mousedown', e => { const b = e.target.closest('[data-loja]'); if (b) { e.preventDefault(); escolherLoja(b.dataset.loja); } });
 C.data.addEventListener('change', () => { infoLoja(); verConflito(); if (tentou) validar(); });
-C.status.addEventListener('change', verConflito);
 [C.hora, C.fim].forEach(c => c.addEventListener('input', () => { dicaDuracao(); if (tentou) validar(); }));
 [C.equipe, C.resp].forEach(c => c.addEventListener('input', () => { if (tentou) validar(); }));
 
@@ -2828,7 +2763,7 @@ $('#form-inv').addEventListener('submit', e => {
   e.preventDefault(); tentou = true;
   if (!validar()) return;
   const reg = { id: estado.editandoId || novoId(), lojaCodigo: estado.lojaSel, data: C.data.value, horaInicio: C.hora.value, horaFim: C.fim.value,
-    tipo: C.tipo.value, status: C.status.value, equipe: C.equipe.value, responsavel: C.resp.value.trim(), observacao: C.obs.value.trim() };
+    equipe: C.equipe.value, responsavel: C.resp.value.trim(), observacao: C.obs.value.trim() };
   const i = estado.inventarios.findIndex(x => x.id === reg.id);
   if (i >= 0) estado.inventarios[i] = reg; else estado.inventarios.push(reg);
   persistir();
@@ -2918,9 +2853,13 @@ document.addEventListener('keydown', e => {
   e.preventDefault();
 });
 
-// Virada de dia: atualiza o destaque de hoje
+// Atualização periódica (status e destaque de hoje)
 let diaAtual = hojeIso();
-setInterval(() => { if (hojeIso() !== diaAtual) { diaAtual = hojeIso(); render(); } }, 60000);
+setInterval(() => {
+  // atualiza status (Agendado → Em andamento → Finalizado) sem atrapalhar quem está usando modal ou detalhes
+  const ocupado = modalEl.classList.contains('show') || !det.classList.contains('d-none');
+  if (!ocupado || hojeIso() !== diaAtual) { diaAtual = hojeIso(); render(); }
+}, 60000);
 let rt; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(render, 150); });
 
 /* =====================================================================
@@ -2928,7 +2867,7 @@ let rt; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(ren
    ===================================================================== */
 const opts = (sel, vals) => $(sel).insertAdjacentHTML('beforeend', vals.map(v => `<option value="${esc(v)}">${esc(v)}</option>`).join(''));
 opts('#f-uf', [...new Set(LOJAS.map(l => l.uf))].sort()); opts('#f-equipe', EQUIPES);
-opts('#i-tipo', TIPOS); opts('#i-status', STATUS); opts('#i-equipe', EQUIPES);
+opts('#i-equipe', EQUIPES);
 $('#f-status-lista').innerHTML = STATUS.map((s, i) => `<div class="form-check">
   <input class="form-check-input" style="--c: var(--bs-${COR[s]})" type="checkbox" value="${s}" id="st${i}" checked>
   <label class="form-check-label" for="st${i}">${s}</label></div>`).join('');
