@@ -33,6 +33,10 @@
             /* cinza divisórias */
             --cinza-bg: #F4F5F7;
             /* cinza fundo leve */
+            --pagina: #EEF0F3;
+            /* cinza claro atrás dos meses */
+            --cartao: #FFFFFF;
+            /* fundo dos meses */
             --azul: #CFE3F7;
             /* azul claro */
             --azul-forte: #6FA8DC;
@@ -55,7 +59,9 @@
             --texto: #F4F5F7;
             --suave: #9AA0A8;
             --linha: #2A2D32;
-            --cinza-bg: #1A1C20;
+            --cinza-bg: #1F2226;
+            --pagina: #0B0C0E;
+            --cartao: #17191D;
             --azul: #2C4A66;
             --azul-forte: #8BBBE6;
             --azul-ink: #E3F0FC;
@@ -284,6 +290,7 @@
             min-height: 0;
             overflow: auto;
             padding: 16px 20px 20px;
+            background: var(--pagina);
             display: grid;
             grid-template-columns: repeat(4, minmax(0, 1fr));
             grid-template-rows: repeat(3, minmax(220px, 1fr));
@@ -298,22 +305,28 @@
             padding: 10px 10px 8px;
             border: 1px solid var(--linha);
             border-radius: 10px;
-            background: var(--fundo);
-            transition: border-color .15s ease, box-shadow .15s ease;
+            background: var(--cartao);
+            box-shadow: 0 1px 2px rgba(16, 24, 40, .06), 0 2px 6px rgba(16, 24, 40, .05);
+            transition: border-color .15s ease, box-shadow .15s ease, transform .15s ease;
         }
         
         .mes:hover {
             border-color: var(--suave);
-            box-shadow: 0 4px 14px rgba(0, 0, 0, .06);
+            box-shadow: 0 6px 18px rgba(16, 24, 40, .12);
+            transform: translateY(-1px);
         }
         
         .mes.atual {
             border-color: var(--azul-forte);
-            box-shadow: 0 0 0 1px var(--azul-forte) inset;
+            box-shadow: 0 0 0 1px var(--azul-forte) inset, 0 2px 8px rgba(111, 168, 220, .25);
         }
         
         .mes.atual:hover {
-            box-shadow: 0 0 0 1px var(--azul-forte) inset, 0 4px 14px rgba(0, 0, 0, .06);
+            box-shadow: 0 0 0 1px var(--azul-forte) inset, 0 6px 18px rgba(16, 24, 40, .12);
+        }
+        
+        [data-bs-theme="dark"] .mes {
+            box-shadow: 0 1px 3px rgba(0, 0, 0, .5);
         }
         
         .mes-cab {
@@ -559,6 +572,19 @@
                 display: none !important;
             }
         }
+        
+        @media (prefers-reduced-motion: reduce) {
+            .mes,
+            .dia {
+                transition: none;
+            }
+            .mes:hover {
+                transform: none;
+            }
+            .dia:hover {
+                transform: none !important;
+            }
+        }
         /* ============ Popover (lista do dia / detalhes) ============ */
         
         .pop {
@@ -708,47 +734,30 @@
             <span class="marca">Inventários</span>
             <div class="ano-nav">
                 <button type="button" class="btn-icone" data-nav="-1" aria-label="Ano anterior" title="Ano anterior (←)">
-                        <svg width="16" height="16" viewBox="0 0 20 20"
-                            aria-hidden="true"><path d="M12.5 4.5 7 10l5.5 5.5"
-                                fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" /></svg>
-                    </button>
+        <svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><path d="M12.5 4.5 7 10l5.5 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
                 <span class="ano" id="ano"></span>
                 <button type="button" class="btn-icone" data-nav="1" aria-label="Próximo ano" title="Próximo ano (→)">
-                        <svg width="16" height="16" viewBox="0 0 20 20"
-                            aria-hidden="true"><path d="M7.5 4.5 13 10l-5.5 5.5"
-                                fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" /></svg>
-                    </button>
+        <svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><path d="M7.5 4.5 13 10l-5.5 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
             </div>
 
             <div class="filtros" role="search">
                 <input type="search" class="form-control form-control-sm" id="f-busca" placeholder="Buscar filial, loja, cidade, responsável" aria-label="Buscar">
-                <select class="form-select form-select-sm" id="f-status" aria-label="Status"><option value>Todos os
-                            status</option></select>
-                <select class="form-select form-select-sm" id="f-uf" aria-label="UF"><option value>Todas as
-                            UFs</option></select>
-                <select class="form-select form-select-sm" id="f-equipe" aria-label="Equipe"><option value>Todas as
-                            equipes</option></select>
+                <select class="form-select form-select-sm" id="f-status" aria-label="Status"><option value="">Todos os status</option></select>
+                <select class="form-select form-select-sm" id="f-uf" aria-label="UF"><option value="">Todas as UFs</option></select>
+                <select class="form-select form-select-sm" id="f-equipe" aria-label="Equipe"><option value="">Todas as equipes</option></select>
                 <button type="button" class="btn btn-sm btn-linha d-none" id="btn-limpar">Limpar</button>
-                <button type="button" class="btn btn-sm btn-preto" id="btn-novo" title="Novo inventário (C)">+ Novo
-                        inventário</button>
+                <button type="button" class="btn btn-sm btn-preto" id="btn-novo" title="Novo inventário (C)">+ Novo inventário</button>
             </div>
         </header>
 
         <!-- Legenda + resumo -->
         <div class="barra" aria-label="Legenda e resumo">
-            <button type="button" class="leg" data-leg="Agendado" title="Mostrar só os agendados"><i
-                        style="background: var(--ag-bg)"></i>Agendado</button>
-            <button type="button" class="leg" data-leg="Em andamento" title="Mostrar só os de hoje"><i
-                        style="background: var(--an-bg)"></i>Em andamento
-                    (hoje)</button>
-            <button type="button" class="leg" data-leg="Finalizado" title="Mostrar só os finalizados"><i
-                        style="background: var(--fi-bg)"></i>Finalizado</button>
-            <span class="dica-uso d-none d-lg-inline">Clique em um dia para
-                    ver ou cadastrar</span>
+            <button type="button" class="leg" data-leg="Agendado" title="Mostrar só os agendados"><i style="background: var(--ag-bg)"></i>Agendado</button>
+            <button type="button" class="leg" data-leg="Em andamento" title="Mostrar só os de hoje"><i style="background: var(--an-bg)"></i>Em andamento (hoje)</button>
+            <button type="button" class="leg" data-leg="Finalizado" title="Mostrar só os finalizados"><i style="background: var(--fi-bg)"></i>Finalizado</button>
+            <span class="dica-uso d-none d-lg-inline">Clique em um dia para ver ou cadastrar</span>
             <span class="resumo" id="resumo"></span>
         </div>
 
@@ -774,8 +783,7 @@
                     <div>
                         <label class="form-label small suave mb-1" for="busca-loja">Loja</label>
                         <input id="busca-loja" type="text" class="form-control" autocomplete="off" placeholder="Filial, nome ou cidade" role="combobox" aria-autocomplete="list" aria-controls="lista-lojas" aria-expanded="false">
-                        <div class="invalid-feedback">Selecione uma loja da lista.
-                        </div>
+                        <div class="invalid-feedback">Selecione uma loja da lista.</div>
                         <div id="lista-lojas" class="list-group mt-1 lista-lojas d-none" role="listbox"></div>
                     </div>
                     <dl id="info-loja" class="row g-0 info-loja px-3 py-1 mb-0 d-none"></dl>
@@ -787,17 +795,13 @@
                     <div id="alerta-conflito" class="alert alert-danger small py-2 mb-0 d-none" role="alert"></div>
                     <div>
                         <label class="form-label small suave mb-1" for="i-equipe">Equipe</label>
-                        <select id="i-equipe" class="form-select"><option
-                                    value disabled selected>Selecione a
-                                    equipe</option></select>
-                        <div class="invalid-feedback">Informe a equipe.
-                        </div>
+                        <select id="i-equipe" class="form-select"><option value="" disabled selected>Selecione a equipe</option></select>
+                        <div class="invalid-feedback">Informe a equipe.</div>
                     </div>
                     <div>
                         <label class="form-label small suave mb-1" for="i-resp">Responsável</label>
                         <input id="i-resp" type="text" class="form-control" maxlength="80" placeholder="Nome do responsável">
-                        <div class="invalid-feedback">Informe o responsável.
-                        </div>
+                        <div class="invalid-feedback">Informe o responsável.</div>
                     </div>
                     <div>
                         <label class="form-label small suave mb-1" for="i-obs">Observações</label>
@@ -823,8 +827,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
     <script>
         /* =====================================================================
-                   DADOS
-                   ===================================================================== */
+           DADOS
+           ===================================================================== */
         // 214 lojas de Regionais_por_Loja.xlsx (Regional desconsiderado)
         const LOJAS = [{
             "codigo": "0003",
@@ -2605,4 +2609,79 @@ render();
     </script>
 </body>
 
+</html>-grade').addEventListener('click', e => {
+  const b = e.target.closest('[data-dia]'); if (!b) return;
+  e.stopPropagation();
+  if (estado.diaPop === b.dataset.dia) return fecharPop();
+  abrirDia(b.dataset.dia, b);
+});
+const irAno = a => { estado.ano = a; render(); };
+
+// Legenda funciona como atalho do filtro de status (clicar de novo desliga)
+document.querySelectorAll('[data-leg]').forEach(b => b.addEventListener('click', () => {
+  const s = estado.filtros.status === b.dataset.leg ? '' : b.dataset.leg;
+  estado.filtros.status = s; $('#f-status').value = s; render();
+}));
+
+// Prévia rápida ao passar o mouse sobre um dia
+const previa = $('#previa');
+$('#ano-grade').addEventListener('mouseover', e => {
+  const b = e.target.closest('[data-dia]');
+  if (!b || !pop.classList.contains('d-none')) return previa.classList.add('d-none');
+  const dia = b.dataset.dia, itens = porData(filtrados()).get(dia) || [];
+  const max = 5;
+  previa.innerHTML = `<b>${dataLonga(dia)}</b>` + (itens.length
+    ? itens.slice(0, max).map(i => `<div class="ln"><span class="quad q-${SIGLA[statusDe(i)]}" style="width:9px;height:9px"></span>${esc(tituloInv(i))}</div>`).join('')
+      + (itens.length > max ? `<div class="ln">+${itens.length - max} outros</div>` : '') + '<div class="acao">Clique para ver detalhes</div>'
+    : '<div class="acao">Sem inventário · clique para cadastrar</div>');
+  previa.classList.remove('d-none');
+  const r = b.getBoundingClientRect(), w = previa.offsetWidth, h = previa.offsetHeight;
+  let x = r.left + r.width / 2 - w / 2; x = Math.max(8, Math.min(x, innerWidth - w - 8));
+  let y = r.top - h - 8; if (y < 8) y = r.bottom + 8;
+  previa.style.left = x + 'px'; previa.style.top = y + 'px';
+});
+$('#ano-grade').addEventListener('mouseleave', () => previa.classList.add('d-none'));
+$('#ano-grade').addEventListener('mousedown', () => previa.classList.add('d-none'));
+document.querySelectorAll('[data-nav]').forEach(b => b.addEventListener('click', () => irAno(estado.ano + Number(b.dataset.nav))));
+$('#btn-novo').addEventListener('click', () => abrirNovo(estado.ano === new Date().getFullYear() ? hojeIso() : `${estado.ano}-01-01`));
+
+$('#f-busca').addEventListener('input', e => { estado.filtros.busca = e.target.value; render(); });
+$('#f-status').addEventListener('change', e => { estado.filtros.status = e.target.value; render(); });
+$('#f-uf').addEventListener('change', e => { estado.filtros.uf = e.target.value; render(); });
+$('#f-equipe').addEventListener('change', e => { estado.filtros.equipe = e.target.value; render(); });
+$('#btn-limpar').addEventListener('click', () => {
+  estado.filtros = { busca: '', status: '', uf: '', equipe: '' };
+  ['#f-busca', '#f-status', '#f-uf', '#f-equipe'].forEach(s => { $(s).value = ''; });
+  render();
+});
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && !pop.classList.contains('d-none')) { fecharPop(); return; }
+  if (e.ctrlKey || e.metaKey || e.altKey || modalEl.classList.contains('show')) return;
+  if (e.target.closest('input, select, textarea')) return;
+  const k = e.key.toLowerCase();
+  if (e.key === 'ArrowLeft') irAno(estado.ano - 1);
+  else if (e.key === 'ArrowRight') irAno(estado.ano + 1);
+  else if (k === 't') irAno(new Date().getFullYear());
+  else if (k === 'c') $('#btn-novo').click();
+  else return;
+  e.preventDefault();
+});
+addEventListener('resize', () => { if (!pop.classList.contains('d-none')) fecharPop(); });
+
+// Virada do dia: status (Agendado → Em andamento → Finalizado) e destaque de hoje
+let diaAtual = hojeIso();
+setInterval(() => { if (hojeIso() !== diaAtual) { diaAtual = hojeIso(); render(); } }, 60000);
+
+/* =====================================================================
+   INICIALIZAÇÃO
+   ===================================================================== */
+const opts = (sel, vals) => $(sel).insertAdjacentHTML('beforeend', vals.map(v => `<option value="${esc(v)}">${esc(v)}</option>`).join(''));
+opts('#f-status', STATUS);
+opts('#f-uf', [...new Set(LOJAS.map(l => l.uf))].sort());
+opts('#f-equipe', EQUIPES);
+opts('#i-equipe', EQUIPES);
+render();
+</script>
+    </body>
 </html>
