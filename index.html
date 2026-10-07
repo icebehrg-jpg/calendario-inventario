@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>Calendário de Inventários</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%85%3C/text%3E%3C/svg%3E">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
@@ -15,7 +16,8 @@
                 document.documentElement.setAttribute('data-bs-theme', mq.matches ? 'dark' : 'light');
             };
             set();
-            mq.addEventListener('change', set);
+            if (mq.addEventListener) mq.addEventListener('change', set);
+            else if (mq.addListener) mq.addListener(set);
         })();
     </script>
     <style>
@@ -431,6 +433,7 @@
         }
         
         .col-dia.fim-semana {
+            background-color: rgba(127, 127, 127, .04);
             background-color: color-mix(in srgb, var(--app-side) 60%, transparent);
         }
         
@@ -460,6 +463,7 @@
             left: 2px;
             right: 6px;
             border-radius: 6px;
+            background: rgba(245, 165, 36, .35);
             background: color-mix(in srgb, var(--app-amber) 35%, transparent);
             border: 1px dashed var(--app-amber);
             z-index: 3;
@@ -625,6 +629,7 @@
         }
         
         .mes-cel.sel {
+            background: rgba(245, 165, 36, .08);
             background: color-mix(in srgb, var(--app-amber) 8%, transparent);
         }
         
@@ -812,30 +817,19 @@
         <!-- ===================== TOPO ===================== -->
         <header class="topo">
             <button type="button" class="btn-icone" id="btn-menu" aria-label="Menu principal">
-                    <svg width="22" height="22" viewBox="0 0 24 24"
-                        aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"
-                            stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" /></svg>
-                </button>
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
             <div class="marca d-none d-sm-flex">
                 <span class="logo" id="logo-dia" aria-hidden="true">7</span>
                 <span class="nome fs-5 fw-semibold d-none d-xl-inline">Inventários</span>
             </div>
             <button type="button" class="btn btn-outline-secondary btn-sm btn-hoje" id="btn-hoje" title="Hoje (T)">Hoje</button>
             <button type="button" class="btn-icone sm" data-nav="-1" aria-label="Anterior" title="Anterior (←)">
-                    <svg width="18" height="18" viewBox="0 0 20 20"
-                        aria-hidden="true"><path d="M12.5 4.5 7 10l5.5 5.5"
-                            fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round" /></svg>
-                </button>
+      <svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><path d="M12.5 4.5 7 10l5.5 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
             <button type="button" class="btn-icone sm" data-nav="1" aria-label="Próximo" title="Próximo (→)">
-                    <svg width="18" height="18" viewBox="0 0 20 20"
-                        aria-hidden="true"><path d="M7.5 4.5 13 10l-5.5 5.5"
-                            fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round" /></svg>
-                </button>
+      <svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><path d="M7.5 4.5 13 10l-5.5 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
             <h1 class="titulo" id="titulo"></h1>
 
             <div class="ms-auto d-flex align-items-center gap-2">
@@ -843,14 +837,10 @@
                 <div class="dropdown">
                     <button class="btn btn-outline-secondary btn-sm dropdown-toggle fw-semibold rounded-pill px-3" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="btn-visao">Mês</button>
                     <ul class="dropdown-menu dropdown-menu-end shadow">
-                        <li><button class="dropdown-item d-flex justify-content-between gap-4" data-visao="dia">Dia <span
-                                        class="text-body-secondary">D</span></button></li>
-                        <li><button class="dropdown-item d-flex justify-content-between gap-4" data-visao="semana">Semana <span
-                                        class="text-body-secondary">S</span></button></li>
-                        <li><button class="dropdown-item d-flex justify-content-between gap-4" data-visao="mes">Mês <span
-                                        class="text-body-secondary">M</span></button></li>
-                        <li><button class="dropdown-item d-flex justify-content-between gap-4" data-visao="ano">Ano <span
-                                        class="text-body-secondary">A</span></button></li>
+                        <li><button class="dropdown-item d-flex justify-content-between gap-4" data-visao="dia">Dia <span class="text-body-secondary">D</span></button></li>
+                        <li><button class="dropdown-item d-flex justify-content-between gap-4" data-visao="semana">Semana <span class="text-body-secondary">S</span></button></li>
+                        <li><button class="dropdown-item d-flex justify-content-between gap-4" data-visao="mes">Mês <span class="text-body-secondary">M</span></button></li>
+                        <li><button class="dropdown-item d-flex justify-content-between gap-4" data-visao="ano">Ano <span class="text-body-secondary">A</span></button></li>
                     </ul>
                 </div>
             </div>
@@ -866,11 +856,9 @@
                 <div class="p-3 pt-lg-3 vstack gap-4">
                     <div>
                         <button type="button" class="btn-criar" id="btn-criar">
-                                <svg width="28" height="28" viewBox="0 0 36 36"
-                                    aria-hidden="true"><path fill="#F5A524"
-                                        d="M16 16v-8h4v8h8v4h-8v8h-4v-8H8v-4z" /></svg>
-                                Criar inventário
-                            </button>
+            <svg width="28" height="28" viewBox="0 0 36 36" aria-hidden="true"><path fill="#F5A524" d="M16 16v-8h4v8h8v4h-8v8h-4v-8H8v-4z"/></svg>
+            Criar inventário
+          </button>
                     </div>
 
                     <!-- Mini calendário -->
@@ -878,24 +866,8 @@
                         <div class="d-flex flex-nowrap align-items-center justify-content-between mb-1 ps-2">
                             <span class="fw-semibold text-truncate" id="mini-titulo"></span>
                             <div class="d-flex flex-none">
-                                <button type="button" class="btn-icone sm" id="mini-ant" aria-label="Mês anterior"><svg
-                                            width="16" height="16"
-                                            viewBox="0 0 20 20"><path
-                                                d="M12.5 4.5 7 10l5.5 5.5"
-                                                fill="none"
-                                                stroke="currentColor"
-                                                stroke-width="2"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round" /></svg></button>
-                                <button type="button" class="btn-icone sm" id="mini-prox" aria-label="Próximo mês"><svg width="16"
-                                            height="16"
-                                            viewBox="0 0 20 20"><path
-                                                d="M7.5 4.5 13 10l-5.5 5.5"
-                                                fill="none"
-                                                stroke="currentColor"
-                                                stroke-width="2"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round" /></svg></button>
+                                <button type="button" class="btn-icone sm" id="mini-ant" aria-label="Mês anterior"><svg width="16" height="16" viewBox="0 0 20 20"><path d="M12.5 4.5 7 10l5.5 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                                <button type="button" class="btn-icone sm" id="mini-prox" aria-label="Próximo mês"><svg width="16" height="16" viewBox="0 0 20 20"><path d="M7.5 4.5 13 10l-5.5 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
                             </div>
                         </div>
                         <div class="mini-cal" id="mini-cal"></div>
@@ -905,16 +877,10 @@
 
                     <!-- Resumo -->
                     <div>
-                        <div class="rotulo-secao mb-2" id="r-rotulo">Neste mês
-                        </div>
+                        <div class="rotulo-secao mb-2" id="r-rotulo">Neste mês</div>
                         <div class="d-flex justify-content-between small mb-1"><span>Inventários</span><strong class="tabular" id="r-total">0</strong></div>
-                        <div class="d-flex justify-content-between small mb-1"><span>Próximos
-                                    7 dias</span><strong class="tabular" id="r-prox">0</strong></div>
-                        <div class="d-flex justify-content-between small mb-1"><span>Lojas
-                                    concluídas em <span
-                                        id="r-ano"></span></span><strong class="tabular"><span
-                                        id="r-cob">0</span>/<span
-                                        id="r-lojas"></span></strong></div>
+                        <div class="d-flex justify-content-between small mb-1"><span>Próximos 7 dias</span><strong class="tabular" id="r-prox">0</strong></div>
+                        <div class="d-flex justify-content-between small mb-1"><span>Lojas concluídas em <span id="r-ano"></span></span><strong class="tabular"><span id="r-cob">0</span>/<span id="r-lojas"></span></strong></div>
                         <div class="progress mt-2" style="height: 6px" role="progressbar" aria-label="Cobertura anual" id="r-progress">
                             <div class="progress-bar" id="r-bar" style="background: var(--app-amber)"></div>
                         </div>
@@ -927,10 +893,8 @@
                     </div>
                     <div>
                         <div class="rotulo-secao mb-2">Filtros</div>
-                        <select id="f-uf" class="form-select form-select-sm mb-2" aria-label="Filtrar por UF"><option value>Todas
-                                    as UFs</option></select>
-                        <select id="f-equipe" class="form-select form-select-sm" aria-label="Filtrar por equipe"><option
-                                    value>Todas as equipes</option></select>
+                        <select id="f-uf" class="form-select form-select-sm mb-2" aria-label="Filtrar por UF"><option value="">Todas as UFs</option></select>
+                        <select id="f-equipe" class="form-select form-select-sm" aria-label="Filtrar por equipe"><option value="">Todas as equipes</option></select>
                         <button type="button" class="btn btn-link btn-sm px-0 mt-1 d-none" id="btn-limpar">Limpar filtros</button>
                     </div>
 
@@ -953,8 +917,7 @@
                 <div class="modal-header align-items-start">
                     <div>
                         <h2 class="modal-title h5 fw-bold" id="titulo-form">Cadastrar inventário</h2>
-                        <p class="small text-body-secondary mb-0" id="sub-form">Escolha a loja e confira data e horário.
-                        </p>
+                        <p class="small text-body-secondary mb-0" id="sub-form">Escolha a loja e confira data e horário.</p>
                     </div>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
                 </div>
@@ -962,8 +925,7 @@
                     <div>
                         <label class="form-label small text-body-secondary mb-1" for="busca-loja">Loja</label>
                         <input id="busca-loja" type="text" class="form-control" autocomplete="off" placeholder="Filial, nome ou cidade" role="combobox" aria-autocomplete="list" aria-controls="lista-lojas" aria-expanded="false">
-                        <div class="invalid-feedback">Selecione uma loja da lista.
-                        </div>
+                        <div class="invalid-feedback">Selecione uma loja da lista.</div>
                         <div id="lista-lojas" class="list-group mt-1 shadow-sm lista-lojas d-none" role="listbox"></div>
                     </div>
                     <dl id="info-loja" class="row g-0 bg-body-tertiary rounded-3 px-3 py-1 mb-0 d-none"></dl>
@@ -971,8 +933,7 @@
                         <div class="col-12 col-sm-6">
                             <label class="form-label small text-body-secondary mb-1" for="i-data">Data</label>
                             <input id="i-data" type="date" class="form-control">
-                            <div class="invalid-feedback">Informe a data.
-                            </div>
+                            <div class="invalid-feedback">Informe a data.</div>
                         </div>
                         <div class="col-6 col-sm-3">
                             <label class="form-label small text-body-secondary mb-1" for="i-hora">Início</label>
@@ -982,8 +943,7 @@
                         <div class="col-6 col-sm-3">
                             <label class="form-label small text-body-secondary mb-1" for="i-fim">Término</label>
                             <input id="i-fim" type="time" class="form-control" step="900">
-                            <div class="invalid-feedback">Diferente do início.
-                            </div>
+                            <div class="invalid-feedback">Diferente do início.</div>
                         </div>
                         <div class="col-12 small text-body-secondary mt-1" id="dica-duracao"></div>
                     </div>
@@ -1000,17 +960,13 @@
                     </div>
                     <div>
                         <label class="form-label small text-body-secondary mb-1" for="i-equipe">Equipe</label>
-                        <select id="i-equipe" class="form-select"><option
-                                    value disabled selected>Selecione a
-                                    equipe</option></select>
-                        <div class="invalid-feedback">Informe a equipe responsável.
-                        </div>
+                        <select id="i-equipe" class="form-select"><option value="" disabled selected>Selecione a equipe</option></select>
+                        <div class="invalid-feedback">Informe a equipe responsável.</div>
                     </div>
                     <div>
                         <label class="form-label small text-body-secondary mb-1" for="i-resp">Responsável</label>
                         <input id="i-resp" type="text" class="form-control" maxlength="80" placeholder="Nome do responsável">
-                        <div class="invalid-feedback">Informe o nome do responsável.
-                        </div>
+                        <div class="invalid-feedback">Informe o nome do responsável.</div>
                     </div>
                     <div>
                         <label class="form-label small text-body-secondary mb-1" for="i-obs">Observações</label>
@@ -2403,14 +2359,14 @@
            HELPERS
            ===================================================================== */
         const $ = s => document.querySelector(s);
-        const esc = s => String(s ? ? '').replace(/[&<>"']/g, c => ({
+        const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({
             '&': '&amp;',
             '<': '&lt;',
             '>': '&gt;',
             '"': '&quot;',
             "'": '&#39;'
         }[c]));
-        const norm = s => String(s ? ? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
+        const norm = s => String(s == null ? '' : s).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
         const curto = l => {
             if (!l) return '';
             const p = l.nome.split('-');
@@ -2513,9 +2469,9 @@
             return estado.inventarios.filter(inv => {
                 const l = lojaPor.get(inv.lojaCodigo);
                 if (!f.status.has(inv.status)) return false;
-                if (f.uf && l ? .uf !== f.uf) return false;
+                if (f.uf && (!l || l.uf !== f.uf)) return false;
                 if (f.equipe && inv.equipe !== f.equipe) return false;
-                if (termo && !norm(`${inv.lojaCodigo} ${l?.nome} ${l?.cidade} ${inv.responsavel}`).includes(termo)) return false;
+                if (termo && !norm(`${inv.lojaCodigo} ${l ? l.nome : ''} ${l ? l.cidade : ''} ${inv.responsavel}`).includes(termo)) return false;
                 return true;
             });
         }
@@ -2705,7 +2661,7 @@ function htmlMes(mapa) {
     const primeiroDoMes = dt.getDate() === 1 ? `${dt.getDate()} ${MESES_C[dt.getMonth()]}` : dt.getDate();
     const linhasEv = itens.slice(0, max).map(i => `<button type="button" class="linha-ev${i.status === 'Cancelado' ? ' cancelado' : ''}${i.id === estado.ativoId ? ' ativo' : ''}" data-ev="${esc(i.id)}" title="${esc(tituloInv(i) + ' • ' + i.horaInicio + ' • ' + i.status)}">
         <span class="pt bg-${COR[i.status]}"></span><span class="hr">${i.horaInicio}</span><span class="tx">${esc(tituloInv(i))}</span></button>`).join('');
-    return `<div class="${cls}" data-novo="${d}" style="min-height: calc((100dvh - 64px - 34px) / ${linhas})">
+    return `<div class="${cls}" data-novo="${d}" style="min-height: calc((100vh - 64px - 34px) / ${linhas})">
       <button type="button" class="n" data-abrir-dia="${d}" aria-label="Abrir ${dataLonga(d)}" style="${dt.getDate() === 1 ? 'width:auto;padding:0 8px;border-radius:13px' : ''}">${primeiroDoMes}</button>
       <div class="mes-eventos vstack gap-0">${linhasEv}
       ${itens.length > max ? `<button type="button" class="mais" data-abrir-dia="${d}">+${itens.length - max} mais</button>` : ''}</div>
@@ -2752,7 +2708,7 @@ function abrirDetalhe(id, ancora) {
     <div class="linha"><span class="ic"><span class="quad bg-${c}"></span></span>
       <div><h3>${esc(tituloInv(inv))}</h3><div class="text-body-secondary">${dataLonga(inv.data)} · ${inv.horaInicio} – ${esc(fimTxt)}</div></div></div>
     <div class="linha mt-2"><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="10" r="2.5" fill="currentColor"/></svg></span>
-      <div>${esc(l?.endereco)}<div class="text-body-secondary small">${esc(l?.cidade)} / ${esc(l?.uf)}</div></div></div>
+      <div>${esc(l ? l.endereco : '')}<div class="text-body-secondary small">${esc(l ? l.cidade : '')} / ${esc(l ? l.uf : '')}</div></div></div>
     <div class="linha"><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5M16 4.5a3.5 3.5 0 0 1 0 7M18 14.8c1.8.7 3 2.5 3.5 5.2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
       <div>${esc(inv.equipe)}<div class="text-body-secondary small">Responsável: ${esc(inv.responsavel)}</div></div></div>
     <div class="linha"><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 4h14v16H5zM9 9h6M9 13h6M9 17h3" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></span>
@@ -2774,7 +2730,7 @@ function fecharDetalhe(limparAtivo = true) {
   if (limparAtivo) { estado.ativoId = null; document.querySelectorAll('[data-ev].ativo').forEach(e => e.classList.remove('ativo')); }
 }
 det.addEventListener('click', e => {
-  const a = e.target.closest('[data-acao]')?.dataset.acao; if (!a) return;
+  const alvo = e.target.closest('[data-acao]'); if (!alvo) return; const a = alvo.dataset.acao;
   const id = estado.ativoId;
   if (a === 'fechar') fecharDetalhe();
   else if (a === 'editar') { fecharDetalhe(false); abrirEdicao(id); }
@@ -2798,7 +2754,7 @@ let tentou = false, confirmaExc = false;
 
 function abrirNovo(data, inicioMin) {
   estado.editandoId = null;
-  const ini = inicioMin ?? 22 * 60, fim = (ini + 4 * 60) % 1440;
+  const ini = inicioMin == null ? 22 * 60 : inicioMin, fim = (ini + 4 * 60) % 1440;
   preencher({ lojaCodigo: '', data, horaInicio: hhmm(ini), horaFim: hhmm(fim), tipo: 'Geral', status: 'Agendado',
     equipe: C.equipe.value, responsavel: C.resp.value, observacao: '' });
   $('#titulo-form').textContent = 'Cadastrar inventário';
@@ -2958,7 +2914,7 @@ $('#principal').addEventListener('click', e => {
 $('#mini-cal').addEventListener('click', e => {
   const b = e.target.closest('[data-ir]'); if (!b) return;
   irPara(b.dataset.ir, estado.visao === 'ano' ? 'dia' : estado.visao);
-  bootstrap.Offcanvas.getInstance($('#lateral'))?.hide();
+  fecharLateral();
 });
 $('#mini-ant').addEventListener('click', () => { estado.mini = addMeses(estado.mini, -1); renderMini(porData(filtrados())); });
 $('#mini-prox').addEventListener('click', () => { estado.mini = addMeses(estado.mini, 1); renderMini(porData(filtrados())); });
@@ -2967,7 +2923,8 @@ $('#mini-prox').addEventListener('click', () => { estado.mini = addMeses(estado.
 document.querySelectorAll('[data-nav]').forEach(b => b.addEventListener('click', () => navegar(Number(b.dataset.nav))));
 $('#btn-hoje').addEventListener('click', () => { estado.ultimaJanela = ''; irPara(hojeIso()); });
 document.querySelectorAll('[data-visao]').forEach(b => b.addEventListener('click', () => irPara(estado.data, b.dataset.visao)));
-$('#btn-criar').addEventListener('click', () => { bootstrap.Offcanvas.getInstance($('#lateral'))?.hide(); abrirNovo(estado.data); });
+function fecharLateral() { const oc = bootstrap.Offcanvas.getInstance($('#lateral')); if (oc) oc.hide(); }
+$('#btn-criar').addEventListener('click', () => { fecharLateral(); abrirNovo(estado.data); });
 $('#btn-menu').addEventListener('click', () => {
   if (window.matchMedia('(min-width: 992px)').matches) { $('#app').classList.toggle('sem-lateral'); render(); }
   else bootstrap.Offcanvas.getOrCreateInstance($('#lateral')).toggle();
