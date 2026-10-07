@@ -312,237 +312,11 @@
             letter-spacing: .04em;
             color: var(--bs-secondary-color);
         }
-        /* ---------- Grade de horas (Dia / Semana) ---------- */
         
-        .grade-wrap {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            min-height: 0;
-        }
-        
-        .grade-cab {
-            display: flex;
-            border-bottom: 1px solid var(--app-line);
-            flex: none;
-            padding-right: var(--scrollbar, 0px);
-        }
-        
-        .grade-cab .gutter {
-            width: 64px;
-            flex: none;
-            display: flex;
-            align-items: flex-end;
-            justify-content: flex-end;
-            padding: 0 8px 6px 0;
-            font-size: .625rem;
-            color: var(--bs-secondary-color);
-        }
-        
-        .cab-dia {
-            flex: 1;
-            min-width: 0;
-            text-align: center;
-            padding: 8px 0 10px;
-            border-left: 1px solid var(--app-line-soft);
-        }
-        
-        .cab-dia .ds {
-            font-size: .6875rem;
-            font-weight: 600;
-            letter-spacing: .06em;
-            color: var(--bs-secondary-color);
-            text-transform: uppercase;
-        }
-        
-        .cab-dia .dn {
-            width: 46px;
-            height: 46px;
-            border-radius: 50%;
-            border: 0;
-            background: transparent;
-            font-size: 1.5rem;
-            font-weight: 500;
-            color: var(--bs-body-color);
-            display: grid;
-            place-items: center;
-            margin: 2px auto 0;
-            padding: 0;
-            font-variant-numeric: tabular-nums;
-        }
-        
-        .cab-dia .dn:hover {
-            background: var(--app-hover);
-        }
-        
-        .cab-dia.hoje .ds {
-            color: #B86E00;
-        }
-        
-        [data-bs-theme="dark"] .cab-dia.hoje .ds {
-            color: var(--app-amber);
-        }
-        
-        .cab-dia.hoje .dn {
-            background: var(--app-amber);
-            color: var(--app-amber-ink);
-        }
-        
-        .cab-dia .qtd {
-            font-size: .6875rem;
-            color: var(--bs-secondary-color);
-            height: 14px;
-        }
-        
-        .grade-scroll {
-            flex: 1;
-            overflow-y: auto;
-            min-height: 0;
-        }
-        
-        .grade {
-            display: flex;
-            position: relative;
-        }
-        
-        .horas {
-            width: 64px;
-            flex: none;
-            position: relative;
-            height: calc(var(--hora) * 24);
-        }
-        
-        .horas span {
-            position: absolute;
-            right: 8px;
-            font-size: .625rem;
-            color: var(--bs-secondary-color);
-            transform: translateY(-50%);
-            font-variant-numeric: tabular-nums;
-        }
-        
-        .col-dia {
-            flex: 1;
-            min-width: 0;
-            position: relative;
-            height: calc(var(--hora) * 24);
-            border-left: 1px solid var(--app-line-soft);
-            cursor: pointer;
-            background-image: linear-gradient(to bottom, var(--app-line-soft) 1px, transparent 1px);
-            background-size: 100% var(--hora);
-        }
-        
-        .col-dia.fim-semana {
-            background-color: rgba(127, 127, 127, .04);
-            background-color: color-mix(in srgb, var(--app-side) 60%, transparent);
-        }
-        
-        .agora {
-            position: absolute;
-            left: -1px;
-            right: 0;
-            height: 2px;
-            background: var(--app-now);
-            z-index: 5;
-            pointer-events: none;
-        }
-        
-        .agora::before {
-            content: '';
-            position: absolute;
-            left: -6px;
-            top: -5px;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: var(--app-now);
-        }
-        
-        .fantasma {
-            position: absolute;
-            left: 2px;
-            right: 6px;
-            border-radius: 6px;
-            background: rgba(245, 165, 36, .35);
-            background: color-mix(in srgb, var(--app-amber) 35%, transparent);
-            border: 1px dashed var(--app-amber);
-            z-index: 3;
-            pointer-events: none;
-            font-size: .6875rem;
-            padding: 2px 6px;
-            color: var(--bs-body-color);
-        }
-        
-        .evento {
-            position: absolute;
-            border: 0;
-            border-radius: 6px;
-            padding: 3px 6px;
-            text-align: left;
-            overflow: hidden;
-            font-size: .75rem;
-            line-height: 1.25;
-            z-index: 2;
-            box-shadow: 0 0 0 1px var(--app-bg);
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .evento:hover {
-            filter: brightness(.95);
-            z-index: 4;
-        }
-        
-        .evento .t {
-            font-weight: 600;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        
-        .evento .h {
-            opacity: .9;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        
-        .evento.curto {
-            flex-direction: row;
-            gap: 4px;
-            align-items: center;
-            padding-top: 1px;
-            padding-bottom: 1px;
-        }
-        
-        .ev-primary {
-            background: var(--bs-primary);
-            color: #fff;
-        }
-        
-        .ev-warning {
-            background: var(--bs-warning);
-            color: #2b1d00;
-        }
-        
-        .ev-success {
-            background: var(--bs-success);
-            color: #fff;
-        }
-        
-        .ev-secondary {
-            background: var(--bs-secondary-bg);
-            color: var(--bs-secondary-color);
-        }
-        
-        .ev-secondary .t {
-            text-decoration: line-through;
-        }
-        
-        .evento.ativo {
-            box-shadow: 0 0 0 2px var(--bs-emphasis-color);
-            z-index: 6;
+        .btn-group .btn.active {
+            background: var(--bs-emphasis-color);
+            color: var(--bs-body-bg);
+            border-color: var(--bs-emphasis-color);
         }
         /* ---------- Mês ---------- */
         
@@ -725,37 +499,238 @@
                 text-align: center;
             }
         }
-        /* ---------- Ano ---------- */
+        /* ---------- Trimestre ---------- */
         
-        .ano {
+        .tri {
             flex: 1;
             overflow-y: auto;
-            padding: 16px 24px 32px;
+            padding: 16px;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            grid-auto-rows: max-content;
+            gap: 16px;
+            align-content: start;
         }
         
-        .ano-mes h3 {
-            font-size: .9375rem;
-            font-weight: 600;
-            margin: 0 0 8px;
-            padding-left: 6px;
+        .tri-mes {
+            border: 1px solid var(--app-line);
+            border-radius: 12px;
+            overflow: hidden;
+            min-width: 0;
         }
         
-        .ano-mes h3 button {
+        .tri-mes.atual {
+            border-color: var(--app-amber);
+        }
+        
+        .tri-cab {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 12px;
+            border-bottom: 1px solid var(--app-line);
+        }
+        
+        .tri-cab button {
             border: 0;
             background: transparent;
+            font-weight: 600;
+            font-size: 1rem;
             padding: 2px 6px;
             border-radius: 6px;
-            color: inherit;
-            font: inherit;
+            color: var(--bs-body-color);
         }
         
-        .ano-mes h3 button:hover {
+        .tri-cab button:hover {
             background: var(--app-hover);
         }
         
-        .ano .mini-cal button {
-            width: 30px;
-            height: 30px;
+        .tri-dsem,
+        .tri-grade {
+            display: grid;
+            grid-template-columns: repeat(7, minmax(0, 1fr));
+        }
+        
+        .tri-dsem span {
+            text-align: center;
+            font-size: .625rem;
+            font-weight: 600;
+            letter-spacing: .05em;
+            color: var(--bs-secondary-color);
+            padding: 6px 0 4px;
+            text-transform: uppercase;
+        }
+        
+        .tri-cel {
+            min-height: 78px;
+            border-top: 1px solid var(--app-line-soft);
+            border-right: 1px solid var(--app-line-soft);
+            padding: 3px 2px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            min-width: 0;
+            overflow: hidden;
+        }
+        
+        .tri-cel:nth-child(7n) {
+            border-right: 0;
+        }
+        
+        .tri-cel:hover {
+            background: var(--app-hover);
+        }
+        
+        .tri-cel.vazio {
+            cursor: default;
+            background: var(--app-side);
+        }
+        
+        .tri-cel.vazio:hover {
+            background: var(--app-side);
+        }
+        
+        .tri-cel .n {
+            align-self: center;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            border: 0;
+            background: transparent;
+            font-size: .6875rem;
+            font-weight: 600;
+            color: var(--bs-body-color);
+            padding: 0;
+            flex: none;
+            font-variant-numeric: tabular-nums;
+        }
+        
+        .tri-cel .n:hover {
+            background: var(--bs-secondary-bg);
+        }
+        
+        .tri-cel.hoje .n {
+            background: var(--app-amber);
+            color: var(--app-amber-ink);
+        }
+        
+        .tri-cel.sel {
+            background: rgba(245, 165, 36, .08);
+        }
+        
+        .ev-primary {
+            background: var(--bs-primary);
+            color: #fff;
+        }
+        
+        .ev-warning {
+            background: var(--bs-warning);
+            color: #2b1d00;
+        }
+        
+        .ev-success {
+            background: var(--bs-success);
+            color: #fff;
+        }
+        
+        .ev-secondary {
+            background: var(--bs-secondary-bg);
+            color: var(--bs-secondary-color);
+        }
+        
+        .chip-q {
+            display: block;
+            width: 100%;
+            border: 0;
+            border-radius: 4px;
+            padding: 0 4px;
+            font-size: .6875rem;
+            line-height: 1.45;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: clip;
+            font-weight: 600;
+            font-variant-numeric: tabular-nums;
+        }
+        
+        .chip-q.cancelado {
+            text-decoration: line-through;
+            opacity: .7;
+        }
+        
+        .chip-q.ativo {
+            outline: 2px solid var(--bs-emphasis-color);
+        }
+        
+        .tri-cel .mais {
+            font-size: .625rem;
+            padding: 0 3px;
+        }
+        
+        .chip-q .nm {
+            display: none;
+        }
+        
+        @media (min-width: 1700px) {
+            .chip-q .nm {
+                display: inline;
+            }
+        }
+        
+        @media (max-width: 991.98px) {
+            .tri {
+                grid-template-columns: 1fr;
+            }
+            .chip-q .nm {
+                display: inline;
+            }
+        }
+        
+        @media (max-width: 575.98px) {
+            .tri {
+                padding: 8px;
+                gap: 12px;
+            }
+            .tri-cel {
+                min-height: 52px;
+            }
+            .chip-q {
+                width: 8px;
+                height: 8px;
+                padding: 0;
+                border: 0;
+                border-radius: 50%;
+                font-size: 0;
+                display: inline-block;
+                margin: 0 1px;
+            }
+            .tri-cel .evs {
+                display: flex;
+                flex-direction: row !important;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 2px !important;
+            }
+        }
+        /* Lista de um dia (+N mais) */
+        
+        .lista-dia-pop .item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            width: 100%;
+            border: 0;
+            background: transparent;
+            padding: 6px 12px;
+            border-radius: 8px;
+            text-align: left;
+            color: var(--bs-body-color);
+        }
+        
+        .lista-dia-pop .item:hover {
+            background: var(--app-hover);
         }
         /* ---------- Popover de detalhes ---------- */
         
@@ -817,31 +792,39 @@
         <!-- ===================== TOPO ===================== -->
         <header class="topo">
             <button type="button" class="btn-icone" id="btn-menu" aria-label="Menu principal">
-      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-    </button>
+                    <svg width="22" height="22" viewBox="0 0 24 24"
+                        aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"
+                            stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" /></svg>
+                </button>
             <div class="marca d-none d-sm-flex">
                 <span class="logo" id="logo-dia" aria-hidden="true">7</span>
                 <span class="nome fs-5 fw-semibold d-none d-xl-inline">Inventários</span>
             </div>
             <button type="button" class="btn btn-outline-secondary btn-sm btn-hoje" id="btn-hoje" title="Hoje (T)">Hoje</button>
             <button type="button" class="btn-icone sm" data-nav="-1" aria-label="Anterior" title="Anterior (←)">
-      <svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><path d="M12.5 4.5 7 10l5.5 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </button>
+                    <svg width="18" height="18" viewBox="0 0 20 20"
+                        aria-hidden="true"><path d="M12.5 4.5 7 10l5.5 5.5"
+                            fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round" /></svg>
+                </button>
             <button type="button" class="btn-icone sm" data-nav="1" aria-label="Próximo" title="Próximo (→)">
-      <svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><path d="M7.5 4.5 13 10l-5.5 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </button>
+                    <svg width="18" height="18" viewBox="0 0 20 20"
+                        aria-hidden="true"><path d="M7.5 4.5 13 10l-5.5 5.5"
+                            fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round" /></svg>
+                </button>
             <h1 class="titulo" id="titulo"></h1>
 
             <div class="ms-auto d-flex align-items-center gap-2">
                 <input type="search" class="form-control form-control-sm busca-topo d-none d-lg-block" id="busca-topo" placeholder="Pesquisar filial, loja, cidade, responsável" aria-label="Pesquisar">
-                <div class="dropdown">
-                    <button class="btn btn-outline-secondary btn-sm dropdown-toggle fw-semibold rounded-pill px-3" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="btn-visao">Mês</button>
-                    <ul class="dropdown-menu dropdown-menu-end shadow">
-                        <li><button class="dropdown-item d-flex justify-content-between gap-4" data-visao="dia">Dia <span class="text-body-secondary">D</span></button></li>
-                        <li><button class="dropdown-item d-flex justify-content-between gap-4" data-visao="semana">Semana <span class="text-body-secondary">S</span></button></li>
-                        <li><button class="dropdown-item d-flex justify-content-between gap-4" data-visao="mes">Mês <span class="text-body-secondary">M</span></button></li>
-                        <li><button class="dropdown-item d-flex justify-content-between gap-4" data-visao="ano">Ano <span class="text-body-secondary">A</span></button></li>
-                    </ul>
+                <div class="btn-group btn-group-sm" role="group" aria-label="Visão do calendário">
+                    <button type="button" class="btn btn-outline-secondary fw-semibold px-3" data-visao="mes" title="Mês (M)">Mês</button>
+                    <button type="button" class="btn btn-outline-secondary fw-semibold px-3" data-visao="trimestre" title="Trimestre (Q)"><span
+                                class="d-none d-sm-inline">Trimestre</span><span
+                                class="d-sm-none">Tri</span></button>
                 </div>
             </div>
         </header>
@@ -856,9 +839,11 @@
                 <div class="p-3 pt-lg-3 vstack gap-4">
                     <div>
                         <button type="button" class="btn-criar" id="btn-criar">
-            <svg width="28" height="28" viewBox="0 0 36 36" aria-hidden="true"><path fill="#F5A524" d="M16 16v-8h4v8h8v4h-8v8h-4v-8H8v-4z"/></svg>
-            Criar inventário
-          </button>
+                                <svg width="28" height="28" viewBox="0 0 36 36"
+                                    aria-hidden="true"><path fill="#F5A524"
+                                        d="M16 16v-8h4v8h8v4h-8v8h-4v-8H8v-4z" /></svg>
+                                Criar inventário
+                            </button>
                     </div>
 
                     <!-- Mini calendário -->
@@ -866,8 +851,24 @@
                         <div class="d-flex flex-nowrap align-items-center justify-content-between mb-1 ps-2">
                             <span class="fw-semibold text-truncate" id="mini-titulo"></span>
                             <div class="d-flex flex-none">
-                                <button type="button" class="btn-icone sm" id="mini-ant" aria-label="Mês anterior"><svg width="16" height="16" viewBox="0 0 20 20"><path d="M12.5 4.5 7 10l5.5 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-                                <button type="button" class="btn-icone sm" id="mini-prox" aria-label="Próximo mês"><svg width="16" height="16" viewBox="0 0 20 20"><path d="M7.5 4.5 13 10l-5.5 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                                <button type="button" class="btn-icone sm" id="mini-ant" aria-label="Mês anterior"><svg
+                                            width="16" height="16"
+                                            viewBox="0 0 20 20"><path
+                                                d="M12.5 4.5 7 10l5.5 5.5"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                stroke-width="2"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round" /></svg></button>
+                                <button type="button" class="btn-icone sm" id="mini-prox" aria-label="Próximo mês"><svg width="16"
+                                            height="16"
+                                            viewBox="0 0 20 20"><path
+                                                d="M7.5 4.5 13 10l-5.5 5.5"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                stroke-width="2"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round" /></svg></button>
                             </div>
                         </div>
                         <div class="mini-cal" id="mini-cal"></div>
@@ -877,10 +878,16 @@
 
                     <!-- Resumo -->
                     <div>
-                        <div class="rotulo-secao mb-2" id="r-rotulo">Neste mês</div>
+                        <div class="rotulo-secao mb-2" id="r-rotulo">Neste mês
+                        </div>
                         <div class="d-flex justify-content-between small mb-1"><span>Inventários</span><strong class="tabular" id="r-total">0</strong></div>
-                        <div class="d-flex justify-content-between small mb-1"><span>Próximos 7 dias</span><strong class="tabular" id="r-prox">0</strong></div>
-                        <div class="d-flex justify-content-between small mb-1"><span>Lojas concluídas em <span id="r-ano"></span></span><strong class="tabular"><span id="r-cob">0</span>/<span id="r-lojas"></span></strong></div>
+                        <div class="d-flex justify-content-between small mb-1"><span>Próximos
+                                    7 dias</span><strong class="tabular" id="r-prox">0</strong></div>
+                        <div class="d-flex justify-content-between small mb-1"><span>Lojas
+                                    concluídas em <span
+                                        id="r-ano"></span></span><strong class="tabular"><span
+                                        id="r-cob">0</span>/<span
+                                        id="r-lojas"></span></strong></div>
                         <div class="progress mt-2" style="height: 6px" role="progressbar" aria-label="Cobertura anual" id="r-progress">
                             <div class="progress-bar" id="r-bar" style="background: var(--app-amber)"></div>
                         </div>
@@ -893,12 +900,14 @@
                     </div>
                     <div>
                         <div class="rotulo-secao mb-2">Filtros</div>
-                        <select id="f-uf" class="form-select form-select-sm mb-2" aria-label="Filtrar por UF"><option value="">Todas as UFs</option></select>
-                        <select id="f-equipe" class="form-select form-select-sm" aria-label="Filtrar por equipe"><option value="">Todas as equipes</option></select>
+                        <select id="f-uf" class="form-select form-select-sm mb-2" aria-label="Filtrar por UF"><option value>Todas
+                                    as UFs</option></select>
+                        <select id="f-equipe" class="form-select form-select-sm" aria-label="Filtrar por equipe"><option
+                                    value>Todas as equipes</option></select>
                         <button type="button" class="btn btn-link btn-sm px-0 mt-1 d-none" id="btn-limpar">Limpar filtros</button>
                     </div>
 
-                    <p class="small text-body-secondary mb-0">Atalhos: ← → navegar · T hoje · D S M A visões · C criar</p>
+                    <p class="small text-body-secondary mb-0">Atalhos: ← → navegar · T hoje · M mês · Q trimestre · C criar</p>
                 </div>
             </aside>
 
@@ -917,7 +926,8 @@
                 <div class="modal-header align-items-start">
                     <div>
                         <h2 class="modal-title h5 fw-bold" id="titulo-form">Cadastrar inventário</h2>
-                        <p class="small text-body-secondary mb-0" id="sub-form">Escolha a loja e confira data e horário.</p>
+                        <p class="small text-body-secondary mb-0" id="sub-form">Escolha a loja e confira data e horário.
+                        </p>
                     </div>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
                 </div>
@@ -925,7 +935,8 @@
                     <div>
                         <label class="form-label small text-body-secondary mb-1" for="busca-loja">Loja</label>
                         <input id="busca-loja" type="text" class="form-control" autocomplete="off" placeholder="Filial, nome ou cidade" role="combobox" aria-autocomplete="list" aria-controls="lista-lojas" aria-expanded="false">
-                        <div class="invalid-feedback">Selecione uma loja da lista.</div>
+                        <div class="invalid-feedback">Selecione uma loja da lista.
+                        </div>
                         <div id="lista-lojas" class="list-group mt-1 shadow-sm lista-lojas d-none" role="listbox"></div>
                     </div>
                     <dl id="info-loja" class="row g-0 bg-body-tertiary rounded-3 px-3 py-1 mb-0 d-none"></dl>
@@ -933,7 +944,8 @@
                         <div class="col-12 col-sm-6">
                             <label class="form-label small text-body-secondary mb-1" for="i-data">Data</label>
                             <input id="i-data" type="date" class="form-control">
-                            <div class="invalid-feedback">Informe a data.</div>
+                            <div class="invalid-feedback">Informe a data.
+                            </div>
                         </div>
                         <div class="col-6 col-sm-3">
                             <label class="form-label small text-body-secondary mb-1" for="i-hora">Início</label>
@@ -943,7 +955,8 @@
                         <div class="col-6 col-sm-3">
                             <label class="form-label small text-body-secondary mb-1" for="i-fim">Término</label>
                             <input id="i-fim" type="time" class="form-control" step="900">
-                            <div class="invalid-feedback">Diferente do início.</div>
+                            <div class="invalid-feedback">Diferente do início.
+                            </div>
                         </div>
                         <div class="col-12 small text-body-secondary mt-1" id="dica-duracao"></div>
                     </div>
@@ -960,13 +973,17 @@
                     </div>
                     <div>
                         <label class="form-label small text-body-secondary mb-1" for="i-equipe">Equipe</label>
-                        <select id="i-equipe" class="form-select"><option value="" disabled selected>Selecione a equipe</option></select>
-                        <div class="invalid-feedback">Informe a equipe responsável.</div>
+                        <select id="i-equipe" class="form-select"><option
+                                    value disabled selected>Selecione a
+                                    equipe</option></select>
+                        <div class="invalid-feedback">Informe a equipe responsável.
+                        </div>
                     </div>
                     <div>
                         <label class="form-label small text-body-secondary mb-1" for="i-resp">Responsável</label>
                         <input id="i-resp" type="text" class="form-control" maxlength="80" placeholder="Nome do responsável">
-                        <div class="invalid-feedback">Informe o nome do responsável.</div>
+                        <div class="invalid-feedback">Informe o nome do responsável.
+                        </div>
                     </div>
                     <div>
                         <label class="form-label small text-body-secondary mb-1" for="i-obs">Observações</label>
@@ -992,8 +1009,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
     <script>
         /* =====================================================================
-           DADOS
-           ===================================================================== */
+                   DADOS
+                   ===================================================================== */
         // 214 lojas de Regionais_por_Loja.xlsx (Regional desconsiderado)
         const LOJAS = [{
             "codigo": "0003",
@@ -2382,7 +2399,7 @@
         const estado = {
             inventarios: carregar(),
             data: hojeIso(),
-            visao: telaPequena() ? 'dia' : 'semana',
+            visao: 'mes', // 'mes' | 'trimestre'
             mini: hojeIso(), // mês exibido no mini calendário
             filtros: {
                 busca: '',
@@ -2394,7 +2411,6 @@
             editandoId: null,
             lojaSel: null,
             destaque: 0,
-            ultimaJanela: '', // para decidir quando rolar a grade de horas
         };
 
         function carregar() {
@@ -2488,45 +2504,6 @@
         const conflito = (codigo, data, ignorar) => estado.inventarios.find(x => x.lojaCodigo === codigo && x.data === data && x.id !== ignorar && x.status !== 'Cancelado');
         const ultimoConcluido = (codigo, antes) => estado.inventarios.filter(x => x.lojaCodigo === codigo && x.status === 'Concluído' && x.data < antes).sort((a, b) => b.data.localeCompare(a.data))[0];
 
-        /** Segmentos de um dia na grade de horas (inclui a continuação de quem virou a noite). */
-        function segmentosDoDia(dia, mapa) {
-            const segs = [];
-            (mapa.get(dia) || []).forEach(inv => segs.push({
-                inv,
-                ini: min(inv.horaInicio),
-                fim: viraDia(inv) ? 1440 : min(inv.horaFim),
-                cont: false
-            }));
-            (mapa.get(addDias(dia, -1)) || []).forEach(inv => {
-                if (viraDia(inv) && min(inv.horaFim) > 0) segs.push({
-                    inv,
-                    ini: 0,
-                    fim: min(inv.horaFim),
-                    cont: true
-                });
-            });
-            // Distribui eventos sobrepostos lado a lado
-            segs.sort((a, b) => a.ini - b.ini || b.fim - a.fim);
-            let grupo = [],
-                fimGrupo = -1;
-            const fechar = () => {
-                const cols = Math.max(...grupo.map(s => s.col)) + 1;
-                grupo.forEach(s => s.cols = cols);
-                grupo = [];
-            };
-            segs.forEach(s => {
-                if (grupo.length && s.ini >= fimGrupo) fechar();
-                const ocupadas = new Set(grupo.filter(g => g.fim > s.ini).map(g => g.col));
-                let c = 0;
-                while (ocupadas.has(c)) c++;
-                s.col = c;
-                grupo.push(s);
-                fimGrupo = Math.max(fimGrupo, s.fim);
-            });
-            if (grupo.length) fechar();
-            return segs;
-        }
-
         /* =====================================================================
            RENDERIZAÇÃO
            ===================================================================== */
@@ -2537,39 +2514,35 @@
             renderTopo();
             renderMini(mapa);
             renderResumo(lista);
-            const alvo = $('#principal');
-            if (estado.visao === 'dia') renderGrade(alvo, [estado.data], mapa);
-            else if (estado.visao === 'semana') renderGrade(alvo, semana(estado.data), mapa);
-            else if (estado.visao === 'mes') alvo.innerHTML = htmlMes(mapa);
-            else alvo.innerHTML = htmlAno(mapa);
+            $('#principal').innerHTML = estado.visao === 'mes' ? htmlMes(mapa) : htmlTrimestre(mapa);
             const f = estado.filtros;
             $('#btn-limpar').classList.toggle('d-none', !(f.busca || f.uf || f.equipe || f.status.size < STATUS.length));
         }
 
+        /** Índice do trimestre (0–3) e primeiro dia de cada mês dele. */
+        const trimestre = s => Math.floor(fromIso(s).getMonth() / 3);
+        const mesesDoTrimestre = s => {
+            const y = fromIso(s).getFullYear(),
+                q = trimestre(s);
+            return [0, 1, 2].map(k => `${y}-${pad(q * 3 + k + 1)}-01`);
+        };
+
         function renderTopo() {
             const d = fromIso(estado.data),
-                v = estado.visao;
+                peq = telaPequena();
             let t;
-            const peq = telaPequena();
-            if (v === 'dia') t = peq ? `${d.getDate()} ${MESES_C[d.getMonth()]} ${d.getFullYear()}` : `${d.getDate()} de ${MESES[d.getMonth()].toLowerCase()} de ${d.getFullYear()}`;
-            else if (v === 'semana') {
-                const s = semana(estado.data),
-                    a = fromIso(s[0]),
-                    b = fromIso(s[6]);
-                t = a.getMonth() === b.getMonth() ? (peq ? `${MESES[a.getMonth()]} ${a.getFullYear()}` : `${MESES[a.getMonth()]} de ${a.getFullYear()}`) :
-                    a.getFullYear() === b.getFullYear() ? `${MESES_C[a.getMonth()]} – ${MESES_C[b.getMonth()]} de ${b.getFullYear()}` :
-                    `${MESES_C[a.getMonth()]} de ${a.getFullYear()} – ${MESES_C[b.getMonth()]} de ${b.getFullYear()}`;
-            } else if (v === 'mes') t = peq ? `${MESES[d.getMonth()]} ${d.getFullYear()}` : `${MESES[d.getMonth()]} de ${d.getFullYear()}`;
-            else t = String(d.getFullYear());
+            if (estado.visao === 'mes') t = peq ? `${MESES[d.getMonth()]} ${d.getFullYear()}` : `${MESES[d.getMonth()]} de ${d.getFullYear()}`;
+            else {
+                const q = trimestre(estado.data);
+                t = peq ? `${q + 1}º tri/${String(d.getFullYear()).slice(2)}` : `${q + 1}º trimestre de ${d.getFullYear()} · ${MESES_C[q * 3]} – ${MESES_C[q * 3 + 2]}`;
+            }
             $('#titulo').textContent = t;
-            $('#btn-visao').textContent = {
-                dia: 'Dia',
-                semana: 'Semana',
-                mes: 'Mês',
-                ano: 'Ano'
-            }[v];
             $('#logo-dia').textContent = new Date().getDate();
-            document.querySelectorAll('[data-visao]').forEach(b => b.classList.toggle('active', b.dataset.visao === v));
+            document.querySelectorAll('[data-visao]').forEach(b => {
+                const on = b.dataset.visao === estado.visao;
+                b.classList.toggle('active', on);
+                b.setAttribute('aria-pressed', on);
+            });
         }
 
         function htmlMiniMes(ref, mapa, opts = {}) {
@@ -2592,10 +2565,9 @@ function renderMini(mapa) {
 }
 
 function renderResumo(lista) {
-  const v = estado.visao, ref = estado.data, s = semana(ref);
-  const noPeriodo = lista.filter(i => v === 'dia' ? i.data === ref : v === 'semana' ? i.data >= s[0] && i.data <= s[6]
-    : v === 'mes' ? i.data.slice(0, 7) === ref.slice(0, 7) : i.data.slice(0, 4) === ref.slice(0, 4));
-  $('#r-rotulo').textContent = { dia: 'Neste dia', semana: 'Nesta semana', mes: 'Neste mês', ano: 'Neste ano' }[v];
+  const ref = estado.data, meses = mesesDoTrimestre(ref).map(m => m.slice(0, 7));
+  const noPeriodo = lista.filter(i => estado.visao === 'mes' ? i.data.slice(0, 7) === ref.slice(0, 7) : meses.includes(i.data.slice(0, 7)));
+  $('#r-rotulo').textContent = estado.visao === 'mes' ? 'Neste mês' : 'Neste trimestre';
   $('#r-total').textContent = noPeriodo.length;
   const h = hojeIso(), f = addDias(h, 7);
   $('#r-prox').textContent = estado.inventarios.filter(i => i.data >= h && i.data <= f && i.status !== 'Cancelado').length;
@@ -2604,51 +2576,6 @@ function renderResumo(lista) {
   $('#r-ano').textContent = ano; $('#r-cob').textContent = cob;
   $('#r-bar').style.width = (cob / LOJAS.length * 100) + '%';
   $('#r-progress').setAttribute('aria-valuenow', cob);
-}
-
-/* ---------- Dia / Semana: grade de horas ---------- */
-function renderGrade(alvo, dias, mapa) {
-  const hoje = hojeIso();
-  const cab = dias.map(d => {
-    const dt = fromIso(d), n = (mapa.get(d) || []).length;
-    return `<div class="cab-dia${d === hoje ? ' hoje' : ''}">
-      <div class="ds">${DSEM[dt.getDay()]}</div>
-      <button type="button" class="dn" data-abrir-dia="${d}" aria-label="Abrir ${dataLonga(d)}">${dt.getDate()}</button>
-      <div class="qtd">${n ? `${n} inventário${n > 1 ? 's' : ''}` : ''}</div>
-    </div>`;
-  }).join('');
-  const horas = Array.from({ length: 23 }, (_, h) => `<span style="top: calc(var(--hora) * ${h + 1})">${pad(h + 1)}:00</span>`).join('');
-  const agora = new Date(), minAgora = agora.getHours() * 60 + agora.getMinutes();
-  const cols = dias.map(d => {
-    const segs = segmentosDoDia(d, mapa);
-    const evs = segs.map(s => {
-      const c = COR[s.inv.status], dur = s.fim - s.ini, curtoEv = dur < 50;
-      const larg = 100 / s.cols;
-      const horario = `${s.inv.horaInicio} – ${s.inv.horaFim}${viraDia(s.inv) && !s.cont ? ' (+1)' : ''}`;
-      return `<button type="button" class="evento ev-${c}${curtoEv ? ' curto' : ''}${s.inv.id === estado.ativoId ? ' ativo' : ''}" data-ev="${esc(s.inv.id)}"
-        style="top: calc(var(--hora) * ${s.ini / 60} + 1px); height: calc(var(--hora) * ${Math.max(dur, 20) / 60} - 2px); left: calc(${s.col * larg}% + 1px); width: calc(${larg}% - 6px);"
-        title="${esc(tituloInv(s.inv) + ' • ' + horario + ' • ' + s.inv.status)}">
-        <span class="t">${s.cont ? '↳ ' : ''}${esc(tituloInv(s.inv))}</span><span class="h">${horario}</span></button>`;
-    }).join('');
-    const dow = fromIso(d).getDay();
-    return `<div class="col-dia${dow === 0 || dow === 6 ? ' fim-semana' : ''}" data-col="${d}">
-      ${evs}${d === hoje ? `<div class="agora" style="top: calc(var(--hora) * ${minAgora / 60})"></div>` : ''}</div>`;
-  }).join('');
-  alvo.innerHTML = `<div class="grade-wrap">
-    <div class="grade-cab"><div class="gutter">GMT-03</div>${cab}</div>
-    <div class="grade-scroll" id="grade-scroll"><div class="grade"><div class="horas">${horas}</div>${cols}</div></div>
-  </div>`;
-  const sc = $('#grade-scroll');
-  // compensa a barra de rolagem no cabeçalho para alinhar colunas
-  alvo.querySelector('.grade-cab').style.setProperty('--scrollbar', (sc.offsetWidth - sc.clientWidth) + 'px');
-  const janela = estado.visao + dias[0];
-  if (janela !== estado.ultimaJanela) {
-    const alvoMin = dias.includes(hoje) ? Math.max(minAgora - 120, 0) : 7 * 60;
-    sc.scrollTop = Math.max(alvoMin / 60 * parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--hora')) - 12, 0);
-    estado.ultimaJanela = janela;
-  } else sc.scrollTop = estado.scrollGrade || 0;
-  sc.addEventListener('scroll', () => { estado.scrollGrade = sc.scrollTop; }, { passive: true });
-  estado.scrollGrade = sc.scrollTop;
 }
 
 /* ---------- Mês ---------- */
@@ -2662,26 +2589,46 @@ function htmlMes(mapa) {
     const linhasEv = itens.slice(0, max).map(i => `<button type="button" class="linha-ev${i.status === 'Cancelado' ? ' cancelado' : ''}${i.id === estado.ativoId ? ' ativo' : ''}" data-ev="${esc(i.id)}" title="${esc(tituloInv(i) + ' • ' + i.horaInicio + ' • ' + i.status)}">
         <span class="pt bg-${COR[i.status]}"></span><span class="hr">${i.horaInicio}</span><span class="tx">${esc(tituloInv(i))}</span></button>`).join('');
     return `<div class="${cls}" data-novo="${d}" style="min-height: calc((100vh - 64px - 34px) / ${linhas})">
-      <button type="button" class="n" data-abrir-dia="${d}" aria-label="Abrir ${dataLonga(d)}" style="${dt.getDate() === 1 ? 'width:auto;padding:0 8px;border-radius:13px' : ''}">${primeiroDoMes}</button>
+      <button type="button" class="n" data-lista-dia="${d}" aria-label="Ver inventários de ${dataLonga(d)}" style="${dt.getDate() === 1 ? 'width:auto;padding:0 8px;border-radius:13px' : ''}">${primeiroDoMes}</button>
       <div class="mes-eventos vstack gap-0">${linhasEv}
-      ${itens.length > max ? `<button type="button" class="mais" data-abrir-dia="${d}">+${itens.length - max} mais</button>` : ''}</div>
+      ${itens.length > max ? `<button type="button" class="mais" data-lista-dia="${d}">+${itens.length - max} mais</button>` : ''}</div>
     </div>`;
   }).join('');
   return `<div class="mes"><div class="mes-cab">${DSEM.map(x => `<span>${x}</span>`).join('')}</div><div class="mes-grade">${cel}</div></div>`;
 }
 
-/* ---------- Ano ---------- */
-function htmlAno(mapa) {
-  const ano = fromIso(estado.data).getFullYear();
-  let h = '<div class="ano"><div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xxl-4 g-4">';
-  for (let m = 0; m < 12; m++) {
-    const ref = `${ano}-${pad(m + 1)}-01`;
-    const qtd = [...mapa.keys()].filter(k => k.startsWith(ref.slice(0, 7))).reduce((s, k) => s + mapa.get(k).length, 0);
-    h += `<div class="col ano-mes"><h3><button type="button" data-abrir-mes="${ref}">${MESES[m]}</button>
-      ${qtd ? `<span class="badge rounded-pill text-bg-light border fw-semibold ms-1">${qtd}</span>` : ''}</h3>
-      <div class="mini-cal">${htmlMiniMes(ref, mapa, { compacto: false })}</div></div>`;
-  }
-  return h + '</div></div>';
+/* ---------- Trimestre ---------- */
+function htmlTrimestre(mapa) {
+  const hoje = hojeIso(), mesHoje = hoje.slice(0, 7);
+  return '<div class="tri">' + mesesDoTrimestre(estado.data).map(ref => {
+    const d = fromIso(ref), ano = d.getFullYear(), m = d.getMonth();
+    const total = new Date(ano, m + 1, 0).getDate();
+    const prefixo = ref.slice(0, 7);
+    let qtd = 0, cel = '<i class="tri-cel vazio"></i>'.repeat(d.getDay());
+    for (let dia = 1; dia <= total; dia++) {
+      const iso = `${prefixo}-${pad(dia)}`, itens = mapa.get(iso) || [];
+      qtd += itens.length;
+      const cls = ['tri-cel', iso === hoje && 'hoje', iso === estado.data && 'sel'].filter(Boolean).join(' ');
+      const chips = itens.slice(0, 2).map(i => {
+        const c = COR[i.status];
+        return `<button type="button" class="chip-q ev-${c}${i.status === 'Cancelado' ? ' cancelado' : ''}${i.id === estado.ativoId ? ' ativo' : ''}"
+          data-ev="${esc(i.id)}"
+          title="${esc(tituloInv(i) + ' • ' + i.horaInicio + ' • ' + i.status)}">${esc(i.lojaCodigo)}<span class="nm"> ${esc(curto(lojaPor.get(i.lojaCodigo)))}</span></button>`;
+      }).join('');
+      cel += `<div class="${cls}" data-novo="${iso}">
+        <button type="button" class="n" data-lista-dia="${iso}" aria-label="Ver inventários de ${dataLonga(iso)}">${dia}</button>
+        <div class="evs vstack gap-1">${chips}${itens.length > 2 ? `<button type="button" class="mais" data-lista-dia="${iso}">+${itens.length - 2}</button>` : ''}</div>
+      </div>`;
+    }
+    const resto = (7 - (d.getDay() + total) % 7) % 7;
+    cel += '<i class="tri-cel vazio"></i>'.repeat(resto);
+    return `<section class="tri-mes${prefixo === mesHoje ? ' atual' : ''}" aria-label="${MESES[m]} de ${ano}">
+      <div class="tri-cab"><button type="button" data-abrir-mes="${ref}" title="Abrir ${MESES[m]} no modo Mês">${MESES[m]}</button>
+        <span class="badge rounded-pill ${qtd ? 'text-bg-primary' : 'bg-body-secondary text-body-secondary'}">${qtd} inventário${qtd === 1 ? '' : 's'}</span></div>
+      <div class="tri-dsem">${DSEM.map(x => `<span>${x}</span>`).join('')}</div>
+      <div class="tri-grade">${cel}</div>
+    </section>`;
+  }).join('') + '</div>';
 }
 
 /* =====================================================================
@@ -2716,13 +2663,36 @@ function abrirDetalhe(id, ancora) {
     ${inv.observacao ? `<div class="linha"><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span><div>${esc(inv.observacao)}</div></div>` : ''}
     <div class="px-3 pt-2 d-none" id="conf-excluir"><div class="alert alert-danger py-2 small mb-2">Excluir este inventário?</div>
       <div class="d-flex gap-2 justify-content-end"><button class="btn btn-sm btn-outline-secondary" data-acao="cancelar-exc">Cancelar</button><button class="btn btn-sm btn-danger" data-acao="confirmar-exc">Excluir</button></div></div>`;
+  posicionarPopover(ancora);
+}
+/** Lista de todos os inventários de um dia (número do dia ou "+N mais"). */
+function abrirListaDia(dia, ancora) {
+  const itens = (porData(filtrados()).get(dia) || []);
+  estado.ativoId = null;
+  det.innerHTML = `
+    <div class="acoes"><button type="button" class="btn-icone sm" data-acao="fechar" aria-label="Fechar">
+      <svg width="18" height="18" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button></div>
+    <div class="text-center mb-2">
+      <div class="small fw-semibold text-body-secondary text-uppercase">${DSEM[fromIso(dia).getDay()]}</div>
+      <div class="fs-3">${fromIso(dia).getDate()} de ${MESES_C[fromIso(dia).getMonth()]}</div>
+    </div>
+    <div class="lista-dia-pop px-1">
+      ${itens.length ? itens.map(i => `<button type="button" class="item" data-acao="ver" data-id="${esc(i.id)}">
+          <span class="rounded-circle bg-${COR[i.status]} flex-none" style="width:10px;height:10px"></span>
+          <span class="tabular text-body-secondary">${i.horaInicio}</span>
+          <span class="fw-semibold text-truncate${i.status === 'Cancelado' ? ' text-decoration-line-through' : ''}">${esc(tituloInv(i))}</span></button>`).join('')
+        : '<p class="text-center text-body-secondary small mb-2">Nenhum inventário neste dia.</p>'}
+    </div>
+    <div class="text-center mt-2"><button type="button" class="btn btn-sm btn-outline-secondary rounded-pill px-3" data-acao="novo-dia" data-dia="${dia}">+ Cadastrar neste dia</button></div>`;
+  posicionarPopover(ancora);
+}
+function posicionarPopover(ancora) {
   det.classList.remove('d-none');
-  // posiciona ao lado do evento, sem sair da tela
   const r = ancora.getBoundingClientRect(), w = det.offsetWidth, h = det.offsetHeight, m = 8;
   let x = r.right + m; if (x + w > innerWidth - m) x = r.left - w - m; if (x < m) x = Math.max(m, (innerWidth - w) / 2);
   let y = r.top; if (y + h > innerHeight - m) y = innerHeight - h - m; if (y < m) y = m;
   det.style.left = x + 'px'; det.style.top = y + 'px';
-  det.querySelector('[data-acao="editar"]').focus();
+  const f = det.querySelector('button'); if (f) f.focus();
 }
 function fecharDetalhe(limparAtivo = true) {
   if (det.classList.contains('d-none')) return;
@@ -2732,6 +2702,8 @@ function fecharDetalhe(limparAtivo = true) {
 det.addEventListener('click', e => {
   const alvo = e.target.closest('[data-acao]'); if (!alvo) return; const a = alvo.dataset.acao;
   const id = estado.ativoId;
+  if (a === 'ver') return abrirDetalhe(alvo.dataset.id, alvo);
+  if (a === 'novo-dia') { fecharDetalhe(); estado.data = alvo.dataset.dia; return abrirNovo(alvo.dataset.dia); }
   if (a === 'fechar') fecharDetalhe();
   else if (a === 'editar') { fecharDetalhe(false); abrirEdicao(id); }
   else if (a === 'excluir') det.querySelector('#conf-excluir').classList.remove('d-none');
@@ -2742,7 +2714,7 @@ det.addEventListener('click', e => {
   }
 });
 document.addEventListener('mousedown', e => {
-  if (!det.classList.contains('d-none') && !det.contains(e.target) && !e.target.closest('[data-ev]')) fecharDetalhe();
+  if (!det.classList.contains('d-none') && !det.contains(e.target) && !e.target.closest('[data-ev],[data-lista-dia]')) fecharDetalhe();
 });
 
 /* =====================================================================
@@ -2870,7 +2842,7 @@ $('#btn-excluir').addEventListener('click', () => {
   modal.hide(); toast('Inventário excluído.');
 });
 modalEl.addEventListener('shown.bs.modal', () => (estado.lojaSel ? C.data : busca).focus());
-modalEl.addEventListener('hidden.bs.modal', () => { estado.editandoId = null; estado.ativoId = null; removerFantasma(); render(); });
+modalEl.addEventListener('hidden.bs.modal', () => { estado.editandoId = null; estado.ativoId = null; render(); });
 
 /* =====================================================================
    INTERAÇÕES DO CALENDÁRIO
@@ -2881,31 +2853,16 @@ function irPara(data, visao) {
   render();
 }
 function navegar(n) {
-  const v = estado.visao, d = estado.data;
-  irPara(v === 'ano' ? addMeses(d, 12 * n) : v === 'mes' ? addMeses(d, n) : addDias(d, v === 'semana' ? 7 * n : n));
+  irPara(addMeses(estado.data, estado.visao === 'mes' ? n : 3 * n));
 }
-function removerFantasma() { document.querySelectorAll('.fantasma').forEach(f => f.remove()); }
 
 $('#principal').addEventListener('click', e => {
   const ev = e.target.closest('[data-ev]');
   if (ev) { e.stopPropagation(); return abrirDetalhe(ev.dataset.ev, ev); }
-  const dia = e.target.closest('[data-abrir-dia]');
-  if (dia) return irPara(dia.dataset.abrirDia, 'dia');
+  const lista = e.target.closest('[data-lista-dia]');
+  if (lista) { e.stopPropagation(); return abrirListaDia(lista.dataset.listaDia, lista); }
   const mes = e.target.closest('[data-abrir-mes]');
   if (mes) return irPara(mes.dataset.abrirMes, 'mes');
-  const ir = e.target.closest('[data-ir]');
-  if (ir) return irPara(ir.dataset.ir, 'dia');
-  // Clique num horário vazio: cria no horário clicado (arredonda para 30 min)
-  const col = e.target.closest('[data-col]');
-  if (col) {
-    const hora = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--hora'));
-    const y = e.clientY - col.getBoundingClientRect().top;
-    const m = Math.min(Math.floor(y / hora * 2) * 30, 1410);
-    removerFantasma();
-    col.insertAdjacentHTML('beforeend', `<div class="fantasma" style="top: calc(var(--hora) * ${m / 60}); height: calc(var(--hora) * ${Math.min(240, 1440 - m) / 60})">${hhmm(m)} – Novo inventário</div>`);
-    estado.data = col.dataset.col;
-    return abrirNovo(col.dataset.col, m);
-  }
   const cel = e.target.closest('[data-novo]');
   if (cel) { estado.data = cel.dataset.novo; return abrirNovo(cel.dataset.novo); }
 });
@@ -2913,7 +2870,7 @@ $('#principal').addEventListener('click', e => {
 // Mini calendário
 $('#mini-cal').addEventListener('click', e => {
   const b = e.target.closest('[data-ir]'); if (!b) return;
-  irPara(b.dataset.ir, estado.visao === 'ano' ? 'dia' : estado.visao);
+  irPara(b.dataset.ir);
   fecharLateral();
 });
 $('#mini-ant').addEventListener('click', () => { estado.mini = addMeses(estado.mini, -1); renderMini(porData(filtrados())); });
@@ -2921,7 +2878,7 @@ $('#mini-prox').addEventListener('click', () => { estado.mini = addMeses(estado.
 
 // Topo
 document.querySelectorAll('[data-nav]').forEach(b => b.addEventListener('click', () => navegar(Number(b.dataset.nav))));
-$('#btn-hoje').addEventListener('click', () => { estado.ultimaJanela = ''; irPara(hojeIso()); });
+$('#btn-hoje').addEventListener('click', () => irPara(hojeIso()));
 document.querySelectorAll('[data-visao]').forEach(b => b.addEventListener('click', () => irPara(estado.data, b.dataset.visao)));
 function fecharLateral() { const oc = bootstrap.Offcanvas.getInstance($('#lateral')); if (oc) oc.hide(); }
 $('#btn-criar').addEventListener('click', () => { fecharLateral(); abrirNovo(estado.data); });
@@ -2951,23 +2908,19 @@ document.addEventListener('keydown', e => {
   if (e.key === 'Escape' && !det.classList.contains('d-none')) { fecharDetalhe(); return; }
   if (e.ctrlKey || e.metaKey || e.altKey || modalEl.classList.contains('show')) return;
   if (e.target.closest('input, select, textarea')) return;
-  const k = e.key.toLowerCase(), vis = { d: 'dia', s: 'semana', w: 'semana', m: 'mes', a: 'ano', y: 'ano' };
+  const k = e.key.toLowerCase(), vis = { m: 'mes', q: 'trimestre', r: 'trimestre' };
   if (e.key === 'ArrowLeft' || k === 'k' || k === 'p') navegar(-1);
   else if (e.key === 'ArrowRight' || k === 'j' || k === 'n') navegar(1);
-  else if (k === 't') { estado.ultimaJanela = ''; irPara(hojeIso()); }
+  else if (k === 't') irPara(hojeIso());
   else if (k === 'c') abrirNovo(estado.data);
   else if (vis[k]) irPara(estado.data, vis[k]);
   else return;
   e.preventDefault();
 });
 
-// Linha do "agora" atualiza a cada minuto; virada de dia re-renderiza
+// Virada de dia: atualiza o destaque de hoje
 let diaAtual = hojeIso();
-setInterval(() => {
-  if (hojeIso() !== diaAtual) { diaAtual = hojeIso(); render(); return; }
-  const linha = document.querySelector('.agora');
-  if (linha) { const a = new Date(); linha.style.top = `calc(var(--hora) * ${(a.getHours() * 60 + a.getMinutes()) / 60})`; }
-}, 60000);
+setInterval(() => { if (hojeIso() !== diaAtual) { diaAtual = hojeIso(); render(); } }, 60000);
 let rt; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(render, 150); });
 
 /* =====================================================================
